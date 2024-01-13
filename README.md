@@ -17,11 +17,13 @@ I enjoy exploring the intersection of biology and technology, constantly seeking
 
 I am currently diving deeper into the realms of bioinformatics, exploring new tools and technologies to enhance my understanding and skills in the field. Additionally, I'm keen on expanding my knowledge in JavaScript and web development.
 
+In my GitHub repositories, you can find a range of interesting projects, covering everything from basic bioinformatics tools to complex data analysis projects. These projects reflect my efforts to integrate technology with biology.
+
 ## 🤝 Let's Connect
 
 If you share similar interests or have exciting ideas for collaboration, feel free to reach out. Let's connect and create something amazing together!
 
-## 📮 Contact me
+## 📮 Contact Me
 
 You can contact me via email: <lucas04@hust.edu.cn>.
 

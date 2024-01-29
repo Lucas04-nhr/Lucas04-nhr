@@ -75,6 +75,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          folder: ./pages/_site
           token: ${{ secrets.GITHUB_TOKEN }}
 

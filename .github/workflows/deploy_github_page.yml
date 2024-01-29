@@ -54,13 +54,11 @@ jobs:
           bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
-        run: |
-          cd pages
+      - name: Upload Artifact
         uses: actions/upload-artifact@v2
-        env:
-          INPUT_PATH: ${{ inputs.path }}
+        with:
+          name: jekyll-site
+          path: ./pages/_site 
 
   # Deployment job
   deploy:

@@ -47,9 +47,6 @@ jobs:
           cd pages
           gem install bundler
           bundle install
-      - name: Build Jekyll Site
-        run: |
-          bundle exec jekyll build
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run:

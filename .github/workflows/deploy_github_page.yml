@@ -70,7 +70,7 @@ jobs:
     steps:
       - name: Move artifact to root
         run: |
-          mv -f /pages/_site/* ./
+          mv -f ./pages/_site/* ./
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

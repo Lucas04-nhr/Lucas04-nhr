@@ -46,6 +46,7 @@ jobs:
         run: |
           cd pages
           gem install bundler
+          bundle install
       - name: Build Jekyll Site
         run: |
           bundle exec jekyll build

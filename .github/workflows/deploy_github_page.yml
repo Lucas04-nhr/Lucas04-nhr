@@ -49,7 +49,7 @@ jobs:
           bundle install
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
-        run:
+        run: |
           cd pages
           bundle exec jekyll build
         env:

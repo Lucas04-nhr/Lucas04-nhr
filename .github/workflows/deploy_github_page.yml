@@ -42,10 +42,15 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
+      - name: Install Dependencies
+        run: |
+          gem install bundler
+          bundle install
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run:
-          bundle install
           bundle exec jekyll build
         env:
           JEKYLL_ENV: production

@@ -6,7 +6,6 @@ I'm a passionate undergraduate student at Huazhong University of Science and Tec
 <center>
     <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Lucas04-nhr?style=flat-square">
     <img alt="GitHub followers" src="https://img.shields.io/github/followers/Lucas04-nhr?style=flat-square">
-    <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Lucas04-nhr?style=flat-square">
 </center>
 
 - 🎓 **Education:** Studying Bioinformatics at HUST.

@@ -2,6 +2,14 @@
 
 I'm a passionate undergraduate student at Huazhong University of Science and Technology (HUST), majoring in Bioinformatics at the College of Life Science and Technology.
 
+---
+<p align="center"> 
+    <img src="https://komarev.com/ghpvc/?username=lucas04-nhr&label=Profile%20views&color=0e75b6&style=flat" alt="lucas04-nhr" /> 
+    <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Lucas04-nhr?style=flat">
+    <img alt="GitHub followers" src="https://img.shields.io/github/followers/Lucas04-nhr?style=flat">
+</p>
+---
+
 ## 🔍 About Me
 
 - 🎓 **Education:** Studying Bioinformatics at HUST.
@@ -26,8 +34,6 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 ## 📈 Skills and Statistics
 
 ### GitHub Stats
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=lucas04-nhr&label=Profile%20views&color=0e75b6&style=flat" alt="lucas04-nhr" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" /></a> </p>
 

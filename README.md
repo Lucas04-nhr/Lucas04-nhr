@@ -39,7 +39,7 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 <p align="center"> 
     <a href="https://github.com/ryo-ma/github-profile-trophy">
-        <img src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" />
+        <img align="center" src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" />
     </a>
     <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact" alt="lucas04-nhr" />
     <img src="https://github-readme-stats.vercel.app/api?username=lucas04-nhr&show_icons=true&locale=en" alt="lucas04-nhr" />
@@ -61,7 +61,7 @@ Some of my other social accounts are:
 
 ## ☕ Support Me
 
-<p align=center>
+<p align="center">
     <a href="https://www.buymeacoffee.com/lucas04"> 
         <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="lucas04" />
     </a>

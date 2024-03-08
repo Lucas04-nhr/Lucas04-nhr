@@ -512,8 +512,8 @@ rules:
 # USER-AGENT,TIDAL*,GlobalMedia
 - DOMAIN-SUFFIX,tidal.com,GlobalMedia
 # > YouTubeMusic
-# USER-AGENT,com.google.ios.youtubemusic*,GlobalMedia
-# USER-AGENT,YouTubeMusic*,GlobalMedia
+- USER-AGENT,com.google.ios.youtubemusic*,GlobalMedia
+- USER-AGENT,YouTubeMusic*,GlobalMedia
 # (Video)
 # > All4
 # USER-AGENT,All4*,GlobalMedia
@@ -698,8 +698,8 @@ rules:
 - DOMAIN,d2anahhhmp1ffz.cloudfront.net,GlobalMedia
 - DOMAIN,dfp6rglgjqszk.cloudfront.net,GlobalMedia
 # > YouTube
-# USER-AGENT,com.google.ios.youtube*,GlobalMedia
-# USER-AGENT,YouTube*,GlobalMedia
+- USER-AGENT,com.google.ios.youtube*,GlobalMedia
+- USER-AGENT,YouTube*,GlobalMedia
 - DOMAIN-SUFFIX,googlevideo.com,GlobalMedia
 - DOMAIN-SUFFIX,youtube.com,GlobalMedia
 - DOMAIN,youtubei.googleapis.com,GlobalMedia

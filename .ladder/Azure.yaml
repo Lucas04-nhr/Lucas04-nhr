@@ -130,25 +130,25 @@ proxies:
 
   - name: "KuaifanCloud"
     type: vmess
-    server: www.qdjljy.com
+    server: www.741dm.com
     port: 443
     uuid: b78f8b6f-80c2-4963-b215-82a42fb281e5
     alterId: 0
     cipher: auto
     udp: true
     tls: true
-    servername: h137-sg.yuanshare.org
+    servername: h130-sg.yuanshare.org
     network: ws
     ws-opts: { 
       path: /D26xvdqUdCpvvPTz4R, 
       headers: { 
-        Host: h137-sg.yuanshare.org 
+        Host: h130-sg.yuanshare.org 
       } 
     }
     ws-path: /D26xvdqUdCpvvPTz4R
     ws-headers: { 
-      Host: h137-sg.yuanshare.org 
-    } 
+      Host: h130-sg.yuanshare.org 
+    }
 
   - name: "PaoPaoDog"
     type: trojan

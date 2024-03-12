@@ -56,7 +56,7 @@ dns:
       - 240.0.0.0/4
 
 proxies:
-  - name: "Shadowsocks"
+  - name: "Shadowsocks1"
     type: ss
     server: 172.174.143.137
     port: 65083
@@ -70,7 +70,21 @@ proxies:
     password: "b9bjMRdVLE"
     cipher: "aes-256-gcm"
 
-  - name: "V2Ray"
+  - name: "Shadowsocks3"
+    type: ss
+    server: 20.115.56.213
+    port: 65083
+    password: "qwS4Ve31s8"
+    cipher: "aes-256-gcm"
+
+  - name: "Shadowsocks4"
+    type: ss
+    server: 20.115.56.213
+    port: 42857
+    password: "qwS4Ve31s8"
+    cipher: "aes-256-gcm"
+
+  - name: "V2Ray1"
     type: vmess
     server: 172.174.143.137
     port: 65084
@@ -86,6 +100,28 @@ proxies:
     server: 172.174.143.137
     port: 42856
     uuid: "feb9b07e-5bfb-4a6c-ff37-4a19a6da3b09"
+    alterId: 0
+    cipher: "auto"
+    network: "tcp"
+    ws-path: "/"
+    ws-headers: {}
+
+  - name: "V2Ray3"
+    type: vmess
+    server: 20.115.56.213
+    port: 65084
+    uuid: "8b0462ff-7f87-4ac1-821c-c6cf6c4fa815"
+    alterId: 0
+    cipher: "auto"
+    network: "tcp"
+    ws-path: "/"
+    ws-headers: {}
+
+  - name: "V2Ray4"
+    type: vmess
+    server: 20.115.56.213
+    port: 42856
+    uuid: "8b0462ff-7f87-4ac1-821c-c6cf6c4fa815"
     alterId: 0
     cipher: "auto"
     network: "tcp"
@@ -140,10 +176,14 @@ proxy-groups:
   type: select
   proxies:
     - "Auto-test"
-    - "Shadowsocks"
+    - "Shadowsocks1"
     - "Shadowsocks2"
-    - "V2Ray"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
     - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -152,10 +192,14 @@ proxy-groups:
 - name: "Auto-test"
   type: url-test
   proxies:
-    - "Shadowsocks"
+    - "Shadowsocks1"
     - "Shadowsocks2"
-    - "V2Ray"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
     - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -166,10 +210,14 @@ proxy-groups:
 - name: "Fallback"
   type: fallback
   proxies:
-    - "Shadowsocks"
+    - "Shadowsocks1"
     - "Shadowsocks2"
-    - "V2Ray"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
     - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -189,10 +237,14 @@ proxy-groups:
   proxies:
     - "DIRECT"
     - "PROXY"
-    - "Shadowsocks"
+    - "Shadowsocks1"
     - "Shadowsocks2"
-    - "V2Ray"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
     - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -212,10 +264,14 @@ proxy-groups:
   type: select
   proxies:
     - "PROXY"
-    - "Shadowsocks"
+    - "Shadowsocks1"
     - "Shadowsocks2"
-    - "V2Ray"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
     - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -226,12 +282,14 @@ proxy-groups:
   proxies:
     - "DIRECT"
     - "PROXY"
-    - "Shadowsocks"
-    - "V2Ray"    
-    - "Shadowsocks"
+    - "Shadowsocks1"
     - "Shadowsocks2"
-    - "V2Ray"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
     - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"

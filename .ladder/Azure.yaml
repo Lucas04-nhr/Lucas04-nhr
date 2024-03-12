@@ -812,15 +812,15 @@ rules:
 # > Microsoft
 - DOMAIN-SUFFIX,onedrive.live.com,PROXY
 - DOMAIN-SUFFIX,xboxlive.com,PROXY
-- DOMAIN-keyword,microsoft,Microsoft
-- DOMAIN-keyword,msn,Microsoft
-- DOMAIN-keyword,skype,Microsoft
-- DOMAIN-keyword,skypeforbusiness,Microsoft
-- DOMAIN-keyword,skypeforbusinessonline,Microsoft
-- DOMAIN-keyword,skypeforbusinessserver,Microsoft
-- DOMAIN-keyword,azure,Microsoft
-- DOMAIN-keyword,office,Microsoft
-- DOMAIN-keyword,office365,Microsoft
+- DOMAIN-KEYWORD,microsoft,Microsoft
+- DOMAIN-KEYWORD,msn,Microsoft
+- DOMAIN-KEYWORD,skype,Microsoft
+- DOMAIN-KEYWORD,skypeforbusiness,Microsoft
+- DOMAIN-KEYWORD,skypeforbusinessonline,Microsoft
+- DOMAIN-KEYWORD,skypeforbusinessserver,Microsoft
+- DOMAIN-KEYWORD,azure,Microsoft
+- DOMAIN-KEYWORD,office,Microsoft
+- DOMAIN-KEYWORD,office365,Microsoft
 # > Facebook
 - DOMAIN-SUFFIX,v2raytech.com,PROXY
 - DOMAIN-SUFFIX,hijk.art,PROXY

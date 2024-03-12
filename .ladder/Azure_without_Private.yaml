@@ -183,7 +183,7 @@ proxy-groups:
 
 # Apple 服务代理
 - name: "Apple"
-  type: select
+  type: url-test
   proxies:
     - "DIRECT"
     - "PROXY"
@@ -195,6 +195,40 @@ proxy-groups:
     - "V2Ray2"
     - "V2Ray3"
     - "V2Ray4"
+  url: 'http://www.apple.com/library/test/success.html'
+  interval: 300
+
+# ChatGPT
+- name: "ChatGPT"
+  type: url-test
+  proxies:
+    - "PROXY"
+    - "Shadowsocks1"
+    - "Shadowsocks2"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
+    - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
+  url: 'https://openai.com'
+  interval: 300
+
+# Microsoft
+- name: "Microsoft"
+  type: url-test
+  proxies:
+    - "PROXY"
+    - "Shadowsocks1"
+    - "Shadowsocks2"
+    - "Shadowsocks3"
+    - "Shadowsocks4"
+    - "V2Ray1"
+    - "V2Ray2"
+    - "V2Ray3"
+    - "V2Ray4"
+  url: 'http://www.msftconnecttest.com/connecttest.txt'
+  interval: 300
 
 # 国际流媒体服务
 - name: "GlobalMedia"
@@ -235,9 +269,9 @@ rules:
 
 # Self
 - IP-CIDR,172.174.143.137/5,DIRECT
-- DOMAIN-KEYWORD,openai,REJECT
-- DOMAIN-KEYWORD,bard,REJECT
-- DOMAIN-KEYWORD,claude,REJECT
+- DOMAIN-KEYWORD,openai,ChatGPT
+- DOMAIN-KEYWORD,bard,ChatGPT
+- DOMAIN-KEYWORD,claude,ChatGPT
 
 # Internet Service Providers Hijacking 运营商劫持
 - DOMAIN-SUFFIX,17gouwuba.com,REJECT
@@ -715,6 +749,15 @@ rules:
 # > Microsoft
 - DOMAIN-SUFFIX,onedrive.live.com,PROXY
 - DOMAIN-SUFFIX,xboxlive.com,PROXY
+- DOMAIN-keyword,microsoft,Microsoft
+- DOMAIN-keyword,msn,Microsoft
+- DOMAIN-keyword,skype,Microsoft
+- DOMAIN-keyword,skypeforbusiness,Microsoft
+- DOMAIN-keyword,skypeforbusinessonline,Microsoft
+- DOMAIN-keyword,skypeforbusinessserver,Microsoft
+- DOMAIN-keyword,azure,Microsoft
+- DOMAIN-keyword,office,Microsoft
+- DOMAIN-keyword,office365,Microsoft
 # > Facebook
 - DOMAIN-SUFFIX,v2raytech.com,PROXY
 - DOMAIN-SUFFIX,hijk.art,PROXY

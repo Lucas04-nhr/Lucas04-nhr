@@ -81,7 +81,7 @@ proxies:
     type: ss
     server: 20.115.56.213
     port: 42857
-    password: "qwS4Ve31s8"
+    password: "4F12sfIxjVIs4fpZc58xv5MXcP1UvUYj6zZsPKhwrFkw"
     cipher: "aes-256-gcm"
 
   - name: "V2Ray1"
@@ -121,7 +121,7 @@ proxies:
     type: vmess
     server: 20.115.56.213
     port: 42856
-    uuid: "8b0462ff-7f87-4ac1-821c-c6cf6c4fa815"
+    uuid: "333577d9-b63c-4571-ab79-b85dffc0f77b"
     alterId: 0
     cipher: "auto"
     network: "tcp"

@@ -161,13 +161,11 @@ proxies:
 
   - name: "SaleAirport"
     type: trojan
-    server: sg08.421421.xyz
+    server: us03.421421.xyz
     port: 20230
     password: 7be3e772-a0d2-425a-8388-80d18b2867ac
     udp: true
-    network: ws
     sni: 421421.xyz
-
 
 # 代理组策略
 proxy-groups:

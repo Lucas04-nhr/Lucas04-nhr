@@ -79,9 +79,9 @@ proxies:
 
   - name: "Shadowsocks4"
     type: ss
-    server: 20.115.56.213
+    server: 20.121.135.45
     port: 42857
-    password: "r6KIyqX3Fp"
+    password: "K0W82ECq5y"
     cipher: "aes-256-gcm"
 
   - name: "V2Ray1"
@@ -119,9 +119,9 @@ proxies:
 
   - name: "V2Ray4"
     type: vmess
-    server: 20.115.56.213
+    server: 20.121.135.45
     port: 42856
-    uuid: "1d30d921-1567-4666-880c-a774a0ffb856"
+    uuid: "09be43ff-012c-45aa-f4ed-170addc7c3f0"
     alterId: 0
     cipher: "auto"
     network: "tcp"
@@ -332,7 +332,7 @@ rules:
 
 # Self
 - IP-CIDR,172.174.143.137/5,DIRECT
-- IP-CIDR,20.115.56.213/5,DIRECT
+- IP-CIDR,20.121.135.45/5,DIRECT
 - DOMAIN-KEYWORD,openai,ChatGPT
 - DOMAIN-KEYWORD,bard,ChatGPT
 - DOMAIN-KEYWORD,claude,ChatGPT

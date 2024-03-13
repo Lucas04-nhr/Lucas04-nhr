@@ -336,6 +336,9 @@ rules:
 - DOMAIN-KEYWORD,openai,ChatGPT
 - DOMAIN-KEYWORD,bard,ChatGPT
 - DOMAIN-KEYWORD,claude,ChatGPT
+- DOMAIN-KEYWORD,v2ray,PROXY
+- DOMAIN-KEYWORD,kuaifan,PROXY
+- DOMAIN-KEYWORD,ppg,PROXY
 
 # Internet Service Providers Hijacking 运营商劫持
 - DOMAIN-SUFFIX,17gouwuba.com,REJECT

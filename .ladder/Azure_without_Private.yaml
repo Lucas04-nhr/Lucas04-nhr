@@ -232,7 +232,7 @@ proxy-groups:
 
 # 国际流媒体服务
 - name: "GlobalMedia"
-  type: select
+  type: url-test
   proxies:
     - "PROXY"
     - "Shadowsocks1"
@@ -243,12 +243,13 @@ proxy-groups:
     - "V2Ray2"
     - "V2Ray3"
     - "V2Ray4"
+  url: 'https://www.youtube.com'
+  interval: 300
 
 # 大陆流媒体面向港澳台限定服务
 - name: "HKMTMedia"
-  type: select
+  type: url-test
   proxies:
-    - "DIRECT"
     - "PROXY"
     - "Shadowsocks1"
     - "Shadowsocks2"
@@ -258,6 +259,8 @@ proxy-groups:
     - "V2Ray2"
     - "V2Ray3"
     - "V2Ray4"
+  url: 'https://bilibili.tv'
+  interval: 300
 
 # 规则
 rules:

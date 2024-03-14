@@ -246,21 +246,21 @@ proxy-groups:
   url: 'https://www.youtube.com'
   interval: 300
 
-# 大陆流媒体面向港澳台限定服务
-- name: "HKMTMedia"
-  type: url-test
-  proxies:
-    - "PROXY"
-    - "Shadowsocks1"
-    - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
-    - "V2Ray1"
-    - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
-  url: 'https://bilibili.tv'
-  interval: 300
+# # 大陆流媒体面向港澳台限定服务
+# - name: "HKMTMedia"
+#   type: url-test
+#   proxies:
+#     - "PROXY"
+#     - "Shadowsocks1"
+#     - "Shadowsocks2"
+#     - "Shadowsocks3"
+#     - "Shadowsocks4"
+#     - "V2Ray1"
+#     - "V2Ray2"
+#     - "V2Ray3"
+#     - "V2Ray4"
+#   url: 'https://bilibili.tv'
+#   interval: 300
 
 # 规则
 rules:
@@ -738,12 +738,12 @@ rules:
 - DOMAIN-SUFFIX,youtube.com,GlobalMedia
 - DOMAIN,youtubei.googleapis.com,GlobalMedia
 
-# (HKMTMedia)
-# > 愛奇藝台灣站
-- DOMAIN,cache.video.iqiyi.com,HKMTMedia
-# > bilibili
-- DOMAIN-SUFFIX,bilibili.com,HKMTMedia
-- DOMAIN,upos-hz-mirrorakam.akamaized.net,HKMTMedia
+# # (HKMTMedia)
+# # > 愛奇藝台灣站
+# - DOMAIN,cache.video.iqiyi.com,HKMTMedia
+# # > bilibili
+# - DOMAIN-SUFFIX,bilibili.com,HKMTMedia
+# - DOMAIN,upos-hz-mirrorakam.akamaized.net,HKMTMedia
 
 # (DNS Cache Pollution Protection)
 # > Google

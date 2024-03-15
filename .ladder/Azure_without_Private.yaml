@@ -70,20 +70,6 @@ proxies:
     password: "b9bjMRdVLE"
     cipher: "aes-256-gcm"
 
-  - name: "Shadowsocks3"
-    type: ss
-    server: 20.121.135.45
-    port: 65083
-    password: "adh3W1s45Q"
-    cipher: "aes-256-gcm"
-
-  - name: "Shadowsocks4"
-    type: ss
-    server: 20.121.135.45
-    port: 42857
-    password: "K0W82ECq5y"
-    cipher: "aes-256-gcm"
-
   - name: "V2Ray1"
     type: vmess
     server: 172.174.143.137
@@ -106,28 +92,6 @@ proxies:
     ws-path: "/"
     ws-headers: {}
 
-  - name: "V2Ray3"
-    type: vmess
-    server: 20.121.135.45
-    port: 65084
-    uuid: "fc679225-12d9-40a5-b84b-74edf9c91571"
-    alterId: 0
-    cipher: "auto"
-    network: "tcp"
-    ws-path: "/"
-    ws-headers: {}
-
-  - name: "V2Ray4"
-    type: vmess
-    server: 20.121.135.45
-    port: 42856
-    uuid: "09be43ff-012c-45aa-f4ed-170addc7c3f0"
-    alterId: 0
-    cipher: "auto"
-    network: "tcp"
-    ws-path: "/"
-    ws-headers: {}
-
 # 代理组策略
 proxy-groups:
 # 代理节点选择
@@ -137,12 +101,8 @@ proxy-groups:
     - "Auto-test"
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
 
 # url-test 通过指定的 URL 测试并选择延迟最低的节点
 - name: "Auto-test"
@@ -150,12 +110,8 @@ proxy-groups:
   proxies:
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
 
@@ -165,12 +121,8 @@ proxy-groups:
   proxies:
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
 
@@ -189,12 +141,8 @@ proxy-groups:
     - "PROXY"
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
   url: 'http://www.apple.com/library/test/success.html'
   interval: 300
 
@@ -205,12 +153,8 @@ proxy-groups:
     - "PROXY"
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
   url: 'https://openai.com'
   interval: 300
 
@@ -218,15 +162,12 @@ proxy-groups:
 - name: "Microsoft"
   type: url-test
   proxies:
+    - "DIRECT"
     - "PROXY"
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
   url: 'http://www.msftconnecttest.com/connecttest.txt'
   interval: 300
 
@@ -237,12 +178,8 @@ proxy-groups:
     - "PROXY"
     - "Shadowsocks1"
     - "Shadowsocks2"
-    - "Shadowsocks3"
-    - "Shadowsocks4"
     - "V2Ray1"
     - "V2Ray2"
-    - "V2Ray3"
-    - "V2Ray4"
   url: 'https://www.youtube.com'
   interval: 300
 
@@ -253,12 +190,8 @@ proxy-groups:
 #     - "PROXY"
 #     - "Shadowsocks1"
 #     - "Shadowsocks2"
-#     - "Shadowsocks3"
-#     - "Shadowsocks4"
 #     - "V2Ray1"
 #     - "V2Ray2"
-#     - "V2Ray3"
-#     - "V2Ray4"
 #   url: 'https://bilibili.tv'
 #   interval: 300
 

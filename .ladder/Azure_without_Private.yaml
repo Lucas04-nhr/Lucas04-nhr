@@ -117,7 +117,7 @@ proxies:
     ws-path: "/"
     ws-headers: {}
 
-  - name: "V2Ray-East_US-2"
+  - name: "V2Ray-North_Europe-2"
     type: vmess
     server: 98.71.16.73
     port: 42856

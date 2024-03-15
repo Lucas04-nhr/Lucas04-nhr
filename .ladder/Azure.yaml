@@ -72,14 +72,14 @@ proxies:
 
   - name: "Shadowsocks-Europe-1"
     type: ss
-    server: 98.71.16.73
+    server: 52.164.201.193
     port: 65083
     password: "adeW31Aqh"
     cipher: "aes-256-gcm"
 
   - name: "Shadowsocks-Europe-2"
     type: ss
-    server: 98.71.16.73
+    server: 52.164.201.193
     port: 42857
     password: "CgQQaSPSpP"
     cipher: "aes-256-gcm"
@@ -122,7 +122,7 @@ proxies:
 
   - name: "V2Ray-Europe-1"
     type: vmess
-    server: 98.71.16.73
+    server: 52.164.201.193
     port: 65084
     uuid: "5e75cb43-29f9-4ac7-80f6-8b837bee1ec2"
     alterId: 0
@@ -133,7 +133,7 @@ proxies:
 
   - name: "V2Ray-Europe-2"
     type: vmess
-    server: 98.71.16.73
+    server: 52.164.201.193
     port: 42856
     uuid: "ca99d88b-fb36-48bc-8202-f81a0d1d7554"
     alterId: 0

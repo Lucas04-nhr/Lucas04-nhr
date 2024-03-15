@@ -56,35 +56,49 @@ dns:
       - 240.0.0.0/4
 
 proxies:
-  - name: "Shadowsocks-East_US-1"
+  - name: "Shadowsocks-US-1"
     type: ss
     server: 172.174.143.137
     port: 65083
     password: "2419aB6E98"
     cipher: "aes-256-gcm"
 
-  - name: "Shadowsocks-East_US-2"
+  - name: "Shadowsocks-US-2"
     type: ss
     server: 172.174.143.137
     port: 42857
     password: "b9bjMRdVLE"
     cipher: "aes-256-gcm"
 
-  - name: "Shadowsocks-North_Europe-1"
+  - name: "Shadowsocks-Europe-1"
     type: ss
     server: 98.71.16.73
     port: 65083
     password: "adeW31Aqh"
     cipher: "aes-256-gcm"
 
-  - name: "Shadowsocks-North_Europe-2"
+  - name: "Shadowsocks-Europe-2"
     type: ss
     server: 98.71.16.73
     port: 42857
     password: "CgQQaSPSpP"
     cipher: "aes-256-gcm"
 
-  - name: "V2Ray-East_US-1"
+  - name: "Shadowsocks-Australia-1"
+    type: ss
+    server: 20.11.26.119
+    port: 65083
+    password: "asfguQWd3"
+    cipher: "aes-256-gcm"
+
+  - name: "Shadowsocks-Australia-2"
+    type: ss
+    server: 20.11.26.119
+    port: 42857
+    password: "u0jq0ReIyv"
+    cipher: "aes-256-gcm"
+
+  - name: "V2Ray-US-1"
     type: vmess
     server: 172.174.143.137
     port: 65084
@@ -95,7 +109,7 @@ proxies:
     ws-path: "/"
     ws-headers: {}
 
-  - name: "V2Ray-East_US-2"
+  - name: "V2Ray-US-2"
     type: vmess
     server: 172.174.143.137
     port: 42856
@@ -106,7 +120,7 @@ proxies:
     ws-path: "/"
     ws-headers: {}
 
-  - name: "V2Ray-North_Europe-1"
+  - name: "V2Ray-Europe-1"
     type: vmess
     server: 98.71.16.73
     port: 65084
@@ -117,11 +131,33 @@ proxies:
     ws-path: "/"
     ws-headers: {}
 
-  - name: "V2Ray-North_Europe-2"
+  - name: "V2Ray-Europe-2"
     type: vmess
     server: 98.71.16.73
     port: 42856
     uuid: "ca99d88b-fb36-48bc-8202-f81a0d1d7554"
+    alterId: 0
+    cipher: "auto"
+    network: "tcp"
+    ws-path: "/"
+    ws-headers: {}
+
+  - name: "V2Ray-Australia-1"
+    type: vmess
+    server: 20.11.26.119
+    port: 65084
+    uuid: "19317337-26a7-45dc-a883-d2803ec6e961"
+    alterId: 0
+    cipher: "auto"
+    network: "tcp"
+    ws-path: "/"
+    ws-headers: {}
+
+  - name: "V2Ray-Australia-2"
+    type: vmess
+    server: 20.11.26.119
+    port: 42856
+    uuid: "8972d00f-84c7-4a21-deb7-6f8d47994a49"
     alterId: 0
     cipher: "auto"
     network: "tcp"
@@ -174,14 +210,18 @@ proxy-groups:
   type: select
   proxies:
     - "Auto-test"
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -190,14 +230,18 @@ proxy-groups:
 - name: "Auto-test"
   type: url-test
   proxies:
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -208,14 +252,18 @@ proxy-groups:
 - name: "Fallback"
   type: fallback
   proxies:
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -235,14 +283,18 @@ proxy-groups:
   proxies:
     - "DIRECT"
     - "PROXY"
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -254,14 +306,18 @@ proxy-groups:
   type: url-test
   proxies:
     - "PROXY"
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -274,14 +330,18 @@ proxy-groups:
   proxies:
     - "DIRECT"
     - "PROXY"
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
@@ -293,33 +353,41 @@ proxy-groups:
   type: url-test
   proxies:
     - "PROXY"
-    - "Shadowsocks-East_US-1"
-    - "Shadowsocks-East_US-2"
-    - "Shadowsocks-North_Europe-1"
-    - "Shadowsocks-North_Europe-2"    
-    - "V2Ray-East_US-1"
-    - "V2Ray-East_US-2"
-    - "V2Ray-North_Europe-1"
-    - "V2Ray-North_Europe-2"
+    - "Shadowsocks-US-1"
+    - "Shadowsocks-US-2"
+    - "Shadowsocks-Europe-1"
+    - "Shadowsocks-Europe-2"    
+    - "Shadowsocks-Australia-1"
+    - "Shadowsocks-Australia-2"    
+    - "V2Ray-US-1"
+    - "V2Ray-US-2"
+    - "V2Ray-Europe-1"
+    - "V2Ray-Europe-2"
+    - "V2Ray-Australia-1"
+    - "V2Ray-Australia-2"
     - "KuaifanCloud"
     - "PaoPaoDog"
     - "SaleAirport"
   url: 'https://youtube.com'
   interval: 300
 
-# # 大陆流媒体面向港澳台限定服务
+# 大陆流媒体面向港澳台限定服务
 # - name: "HKMTMedia"
 #   type: url-test
 #   proxies:
 #     - "PROXY"
-    # - "Shadowsocks-East_US-1"
-    # - "Shadowsocks-East_US-2"
-    # - "Shadowsocks-North_Europe-1"
-    # - "Shadowsocks-North_Europe-2"    
-    # - "V2Ray-East_US-1"
-    # - "V2Ray-East_US-2"
-    # - "V2Ray-North_Europe-1"
-    # - "V2Ray-North_Europe-2"
+#     - "Shadowsocks-US-1"
+#     - "Shadowsocks-US-2"
+#     - "Shadowsocks-Europe-1"
+#     - "Shadowsocks-Europe-2"    
+#     - "Shadowsocks-Australia-1"
+#     - "Shadowsocks-Australia-2"    
+#     - "V2Ray-US-1"
+#     - "V2Ray-US-2"
+#     - "V2Ray-Europe-1"
+#     - "V2Ray-Europe-2"
+#     - "V2Ray-Australia-1"
+#     - "V2Ray-Australia-2"
 #     - "KuaifanCloud"
 #     - "PaoPaoDog"
 #     - "SaleAirport"

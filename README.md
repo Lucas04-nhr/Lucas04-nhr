@@ -73,4 +73,14 @@ Some of my other social accounts are:
 
 ---
 
+<p align="center">
+    <a target="_blank" href="https://blog.lucas04.xyz/" >Blog</a>
+    <span>|</span>
+    <a target="_blank" href="https://github.com/lucas04-nhr/" >GitHub</a>
+    <span>|</span>
+    <a target="_blank" href="https://alist.lucas04.xyz/" >WebDAV</a>    
+</p>
+
+---
+
 *Note: This README is a living document and will be updated as my journey unfolds.*

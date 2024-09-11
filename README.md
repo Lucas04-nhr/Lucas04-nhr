@@ -70,7 +70,7 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 ## 📮 Contact Me
 
-You can contact me via email: <lucas04@hust.edu.cn>.
+You can contact me via email: <lucas04@lucas04.xyz>.
 
 Some of my other social accounts are:
 <a href="https://twitter.com/__lucas04__" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="__lucas04__" height="30" width="40" /></a>

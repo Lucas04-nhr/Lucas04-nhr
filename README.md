@@ -2,10 +2,7 @@
 
 I'm a passionate undergraduate student at Huazhong University of Science and Technology (HUST), majoring in Bioinformatics at the College of Life Science and Technology.
 
----
-
 <p align="center"> 
-    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/lucas04-nhr/lucas04-nhr.github.io/.github%2Fworkflows%2Fdeploy_github_page.yml">
     <img src="https://komarev.com/ghpvc/?username=lucas04-nhr&label=Profile%20views&color=0e75b6&style=flat" alt="lucas04-nhr" /> 
     <img alt="GitHub User's stars" src="https://img.shields.io/github/stars/Lucas04-nhr?style=flat">
     <img alt="GitHub followers" src="https://img.shields.io/github/followers/Lucas04-nhr?style=flat">
@@ -70,7 +67,7 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 ## 📮 Contact Me
 
-You can contact me via email: <lucas04@lucas04.xyz>.
+You can contact me via email: <lucas04@foxmail.com>.
 
 Some of my other social accounts are:
 <a href="https://twitter.com/__lucas04__" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="__lucas04__" height="30" width="40" /></a>
@@ -81,21 +78,11 @@ Some of my other social accounts are:
 
 <p align="center">
     <a href="https://www.buymeacoffee.com/lucas04"> 
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="lucas04" />
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="lucas04" />
     </a>
     <a href="https://ko-fi.com/lucas04"> 
-        <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="lucas04" />
+        <a href='https://ko-fi.com/X8X5UOE5H' target='_blank'><img height="50px" style='border:10px;height:50px' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' border='10px' alt='Buy Me a Coffee at ko-fi.com' /></a>
     </a>
-</p>
-
----
-
-<p align="center">
-    <a target="_blank" href="https://blog.lucas04.xyz/" >Blog</a>
-    <span>|</span>
-    <a target="_blank" href="https://github.com/lucas04-nhr/" >GitHub</a>
-    <span>|</span>
-    <a target="_blank" href="https://alist.lucas04.xyz/" >WebDAV</a>    
 </p>
 
 ---

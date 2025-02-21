@@ -85,6 +85,8 @@ Some of my other social accounts are:
     </a>
 </p>
 
+Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
+
 ---
 
 *Note: This README is a living document and will be updated as my journey unfolds.*

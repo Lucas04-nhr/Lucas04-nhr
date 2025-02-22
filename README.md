@@ -81,7 +81,7 @@ Some of my other social accounts are:
         <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="lucas04" />
     </a>
     <a href="https://ko-fi.com/lucas04"> 
-        <a href='https://ko-fi.com/X8X5UOE5H' target='_blank'><img height="50px" style='border:10px;height:50px' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' border='10px' alt='Buy Me a Coffee at ko-fi.com' /></a>
+        <a href='https://ko-fi.com/X8X5UOE5H' target='_blank'><img height="50px" style='height:50px' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' alt='Buy Me a Coffee at ko-fi.com' /></a>
     </a>
 </p>
 

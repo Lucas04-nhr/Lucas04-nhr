@@ -77,7 +77,7 @@ Some of my other social accounts are:
 ## ☕ Support Me
 
 <p align="center">
-    <a href="https://www.buymeacoffee.com/lucas04"> 
+    <a href="https://www.buymeacoffee.com/lucas04" target='_blank'> 
         <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="lucas04" />
     </a>
     <a href="https://ko-fi.com/lucas04"> 
@@ -86,6 +86,10 @@ Some of my other social accounts are:
 </p>
 
 Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
+
+<center>
+    <a href='https://afdian.com/a/lucas04' target='_blank'><img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/afdian.jpg" style='max-width:347px' alt='Afdian QR code' /></a>
+</center>
 
 ---
 

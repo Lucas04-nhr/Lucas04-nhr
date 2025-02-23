@@ -88,7 +88,7 @@ Some of my other social accounts are:
 Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
 
 <center>
-    <a href='https://afdian.com/a/lucas04' target='_blank'><img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/afdian.jpg" style='max-width:347px' alt='Afdian QR code' /></a>
+    <a href='https://afdian.com/a/lucas04' target='_blank'><img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/afdian.jpg" style='width:100px' alt='Afdian QR code' /></a>
 </center>
 
 ---

@@ -38,9 +38,9 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 ### GitHub Stats
 
 <p align="center"> 
-    <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <!-- <a href="https://github.com/ryo-ma/github-profile-trophy">
         <img align="center" src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" />
-    </a>
+    </a> -->
     <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact" alt="lucas04-nhr" />
 </p>
 

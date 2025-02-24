@@ -25,6 +25,8 @@ I enjoy exploring the intersection of biology and technology, constantly seeking
 
 I am currently diving deeper into the realms of bioinformatics, exploring new tools and technologies to enhance my understanding and skills in the field. Additionally, I'm keen on expanding my knowledge in JavaScript and web development.
 
+By the time, I'm also learning about the basics of machine learning and artificial intelligence, as well as basic knowledge of computer science, mainly focusing on front-end development using `vue.js`. I hope to integrate these skills with my bioinformatics knowledge to create innovative solutions.
+
 In my GitHub repositories, you can find a range of interesting projects, covering everything from basic bioinformatics tools to complex data analysis projects. These projects reflect my efforts to integrate technology with biology.
 
 ## 🤝 Let's Connect
@@ -76,12 +78,14 @@ Some of my other social accounts are:
 
 ## ☕ Support Me
 
+You can use [Ko-Fi](https://ko-fi.com/lucas04) or [Buy Me a Coffee](https://www.buymeacoffee.com/lucas04) to support me.
+
 <p align="center">
-    <a href="https://www.buymeacoffee.com/lucas04" target='_blank'> 
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="lucas04" />
+    <a href="https://ko-fi.com/lucas04" target='_blank'> 
+        <img height="50px" style='height:50px' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' alt='Buy Me a Coffee at ko-fi.com' />
     </a>
-    <a href="https://ko-fi.com/lucas04"> 
-        <a href='https://ko-fi.com/X8X5UOE5H' target='_blank'><img height="50px" style='height:50px' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' alt='Buy Me a Coffee at ko-fi.com' /></a>
+    <a href="https://www.buymeacoffee.com/lucas04" target='_blank'> 
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="Buy Me a Coffee" />
     </a>
 </p>
 
@@ -92,6 +96,9 @@ Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
         <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/afdian.jpg" alt='Afdian QR code' width="50%" />
     </a>
 </p>
+
+> [!CAUTION]
+> Please note that as `buymeacoffee` doesn't support `stripe` account from China to withdraw money, I can't use it. So, if you want to support me, please use `ko-fi` or `afdian`.
 
 ---
 

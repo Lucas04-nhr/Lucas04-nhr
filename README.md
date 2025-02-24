@@ -42,6 +42,8 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
         <img align="center" src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" />
     </a> -->
     <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact" alt="lucas04-nhr" />
+    <img src="https://github-readme-stats.vercel.app/api?username=lucas04-nhr&show_icons=true&locale=en" alt="lucas04-nhr" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=lucas04-nhr&" alt="lucas04-nhr" />
 </p>
 
 ### Languages and Tools

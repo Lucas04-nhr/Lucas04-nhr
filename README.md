@@ -42,8 +42,6 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
         <img align="center" src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" />
     </a>
     <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact" alt="lucas04-nhr" />
-    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Discord/Discord.png?raw=true" alt="Discord" style="width: 160px; height: 90px; margin: 10px 10px;">
-    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Twitter/Twitter.png?raw=true" alt="Twitter" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>
 
 ### Languages and Tools
@@ -63,7 +61,7 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 <p style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Swift/Swift.png?raw=true" alt="Swift" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Html/HTML.png?raw=true" alt="HTML" style="width: 160px; height: 90px; margin: 10px 10px;">
-    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Rstudio/Rstudio.png?raw=true" alt="Rstudio" style="width: 160px; height: 90px; margin: 10px 10px;">
+    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Rstudio/RStudio.png?raw=true" alt="Rstudio" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Ubuntu/Ubuntu.png?raw=true" alt="Ubuntu" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>
 
@@ -75,6 +73,11 @@ Some of my other social accounts are:
 <a href="https://twitter.com/__lucas04__" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="__lucas04__" height="30" width="40" /></a>
 <a href="https://fb.com/lucas.04.n" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="lucas.04.n" height="30" width="40" /></a>
 <a href="https://instagram.com/lucas04_11" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="lucas04_11" height="30" width="40" /></a>
+
+<p style="display: inline-flex;">
+    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Discord/Discord.png?raw=true" alt="Discord" style="width: 160px; height: 90px; margin: 10px 10px;">
+    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Twitter/Twitter.png?raw=true" alt="Twitter" style="width: 160px; height: 90px; margin: 10px 10px;">
+</p>
 
 ## ☕ Support Me
 

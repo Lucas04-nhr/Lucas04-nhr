@@ -49,11 +49,9 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 <p style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/GitHub/GitHub.png?raw=true" alt="GitHub" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/GitLab/GitLab.png?raw=true" alt="GitLab" style="width: 160px; height: 90px; margin: 10px 10px;">
-    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Cloudflare/Cloudflare.png?raw=true" alt="Cloudflare" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/VisualStudioCode/VisualStudioCode.png?raw=true" alt="Visual Studio Code" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>
 <p style="display: inline-flex;">
-    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/React/React.png?raw=true" alt="React" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Vue/Vue.png?raw=true" alt="Vue" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Node.js/Node.js.png?raw=true" alt="Node.js" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Python/Python.png?raw=true" alt="Python" style="width: 160px; height: 90px; margin: 10px 10px;">
@@ -61,7 +59,6 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 <p style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Swift/Swift.png?raw=true" alt="Swift" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Html/HTML.png?raw=true" alt="HTML" style="width: 160px; height: 90px; margin: 10px 10px;">
-    <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Rstudio/RStudio.png?raw=true" alt="Rstudio" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Ubuntu/Ubuntu.png?raw=true" alt="Ubuntu" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>
 

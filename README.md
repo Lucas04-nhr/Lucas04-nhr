@@ -46,17 +46,17 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 ### Languages and Tools
 
-<p style="display: inline-flex;">
+<p align="center" style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/GitHub/GitHub.png?raw=true" alt="GitHub" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/GitLab/GitLab.png?raw=true" alt="GitLab" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/VisualStudioCode/VisualStudioCode.png?raw=true" alt="Visual Studio Code" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>
-<p style="display: inline-flex;">
+<p align="center" style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Vue/Vue.png?raw=true" alt="Vue" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Node.js/Node.js.png?raw=true" alt="Node.js" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Python/Python.png?raw=true" alt="Python" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>
-<p style="display: inline-flex;">
+<p align="center" style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Swift/Swift.png?raw=true" alt="Swift" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Html/HTML.png?raw=true" alt="HTML" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Ubuntu/Ubuntu.png?raw=true" alt="Ubuntu" style="width: 160px; height: 90px; margin: 10px 10px;">
@@ -71,7 +71,7 @@ Some of my other social accounts are:
 <a href="https://fb.com/lucas.04.n" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="lucas.04.n" height="30" width="40" /></a>
 <a href="https://instagram.com/lucas04_11" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="lucas04_11" height="30" width="40" /></a>
 
-<p style="display: inline-flex;">
+<p align="center" style="display: inline-flex;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Discord/Discord.png?raw=true" alt="Discord" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Twitter/Twitter.png?raw=true" alt="Twitter" style="width: 160px; height: 90px; margin: 10px 10px;">
 </p>

@@ -80,15 +80,16 @@ Some of my other social accounts are:
 
 ## ☕ Support Me
 
-You can use [Ko-Fi](https://ko-fi.com/lucas04) or [Buy Me a Coffee](https://www.buymeacoffee.com/lucas04) to support me.
+You can use [Ko-Fi](https://ko-fi.com/lucas04) or **~~Buy Me a Coffee~~** to support me.
 
 <p align="center">
     <a href="https://ko-fi.com/lucas04" target='_blank'> 
         <img height="50px" style='height:50px' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' alt='Buy Me a Coffee at ko-fi.com' />
     </a>
-    <a href="https://www.buymeacoffee.com/lucas04" target='_blank'> 
+    <!-- <a href="https://www.buymeacoffee.com/lucas04" target='_blank'> 
         <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="Buy Me a Coffee" />
-    </a>
+    </a> -->
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="Buy Me a Coffee" />
 </p>
 
 Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
@@ -100,7 +101,7 @@ Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
 </p>
 
 > [!CAUTION]
-> Please note that as `buymeacoffee` doesn't support `stripe` account from China to withdraw money, I can't use it. So, if you want to support me, please use `ko-fi` or `afdian`.
+> Tips from **Buy me a Coffee** is currently unavailable due to the service's restriction in my country. Please consider using **Ko-Fi** or **Afdian** instead.
 
 ---
 

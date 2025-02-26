@@ -92,9 +92,12 @@ You can use [Ko-Fi](https://ko-fi.com/lucas04) or **~~Buy Me a Coffee~~** to sup
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50px" alt="Buy Me a Coffee" />
 </p>
 
-Or, you can use [Afdian](https://afdian.com/a/lucas04) if you like.
+Or, you can use [Patreon](https://patreon.com/lucas04) or [Afdian](https://afdian.com/a/lucas04) if you like.
 
 <p align="center">
+    <a href='https://patreon.com/lucas04' target='_blank'>
+        <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/patreon.png" alt='Patreon' width="50%" />
+    </a>
     <a href='https://afdian.com/a/lucas04' target='_blank'>
         <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/afdian.jpg" alt='Afdian QR code' width="50%" />
     </a>

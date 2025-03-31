@@ -1,6 +1,6 @@
 <div align="center">
     <!-- dynamic typing effect 动态打字效果 -->
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=console.log(%22Hello%2C%20World%22);你好，世界&center=true&size=27" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com/demo/?font=Noto+Sans&center=true&vCenter=true&random=true&lines=Ad+astra+abyssosque.;%E5%90%91%E7%9D%80%E6%98%9F%E8%BE%B0%E4%B8%8E%E6%B7%B1%E6%B8%8A%E3%80%82;%E6%98%9F%E3%81%A8%E6%B7%B1%E6%B7%B5%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%97%E3%81%A6%E3%80%82" alt="Typing SVG" />
 </div>
 
 # Hi there! 👋

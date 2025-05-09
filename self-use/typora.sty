@@ -1,0 +1,36 @@
+%!TEX program = xelatex
+\usepackage[UTF8]{ctex}
+\usepackage[utf8]{inputenc}
+\usepackage{subfigure}
+\usepackage{enumerate}
+% \usepackage[graphicx]{realboxes}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+% \usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\newcommand{\lineB}{\begin{center}\rule{\linewidth}{0.5pt}\end{center}}
+\usepackage[fontsize=0.05\paperwidth]{draftwatermark}
+
+\pagestyle{fancy}
+\cfoot{\thepage}
+\geometry{a4paper,left=2.8cm,right=2.8cm,top=3cm,bottom=2.5cm}
+\SetWatermarkText{}
+
+% Change CTEX numbering
+\renewcommand{\thesection}{\arabic{section} }
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+% Change monotype font
+% Set default minted style and font
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{FandolSong}
+\setCJKmainfont{FandolSong}
+\setmonofont{Maple Mono NF CN}[Contextuals=Alternate]

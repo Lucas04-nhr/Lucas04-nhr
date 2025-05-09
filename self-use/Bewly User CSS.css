@@ -1,0 +1,59 @@
+@keyframes clickAnimation {
+  from {
+    transform: scale(1); /* 开始时大小为 1 */
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes hoverAnimation {
+  from {
+    transform: scale(1); /* 开始时大小为 1 */
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+button,
+section,
+aside,
+ul,
+li.context-menu-item,
+[class$='activated'],
+a:hover,
+div {
+	border-radius: 10px !important;
+}
+
+li.context-menu-item:hover,
+button:hover {
+  box-shadow: var(--bew-shadow-edge-glow-1), 0 0 0 2px var(--bew-fill-2), var(--bew-shadow-2);
+  scale: 1.05;
+  transition: transform .3s cubic-bezier(.34,2,.6,1), background .3s ease, color .3s ease, box-shadow .6s ease, opacity .6s ease;
+}
+
+button:active,
+/*ul:active,*/
+a:active,
+li.context-menu-item:active,
+.float-button:active,
+.space-head-follow:active,
+.side-nav__item:active,
+.bili-dyn-action:active,
+.more-actions__trigger:active,
+.menu-popover__panel-item:active,
+.living-section__follow:active {
+	box-shadow: var(--bpx-box-shadow);
+	animation: clickAnimation .3s cubic-bezier(.34,2,.6,1);
+}
+
+@media (prefers-color-scheme: light) {
+    [class$='activated'] {
+        background-color: var(--bew-theme-color) !important;
+        border-color: var(--bew-theme-color-60) !important;
+        --un-shadow: 0 4px 30px color-mix(in oklab, #00A0D8, transparent 40%);
+        box-shadow: var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
+    }
+}

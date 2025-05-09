@@ -1,0 +1,60 @@
+@keyframes clickAnimation {
+  0% {
+    transform: scale(1);
+    /* 开始时大小为 1 */
+  }
+
+  30% {
+    transform: scale(0.9);
+  }
+
+  60% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    /* 最后恢复到原始大小 */
+  }
+}
+
+@keyframes pagePopup {
+  from {
+    transform: translateX(-2em);
+    opacity: 0%;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
+
+:root {
+  --button-border-radius: 12px;
+  --button-border-radius-hover: 8px;
+  --button-border-radius-active: 12px;
+  --animation: cubic-bezier(.56, -0.37, .46, 1.58);
+  --short-timer: 0.2s;
+  --long-timer: 0.5s;
+}
+
+[class^="Mui"] {
+  border-radius: var(--button-border-radius) !important;
+}
+
+[class^="Mui"]:hover {
+  border-radius: var(--button-border-radius-hover) !important;
+  animation: border-radius, var(--short-timer), var(--animation);
+}
+
+[class^="MuiButton"]:active,
+[class^="MuiListItemButton"]:active {
+  border-radius: var(--button-border-radius-active) !important;
+  transition: border-radius var(--short-timer) var(--animation);
+  animation: clickAnimation var(--long-timer) var(--animation);
+}
+
+[class~="base-page"] {
+  animation: pagePopup var(--short-timer) var(--animation);
+}

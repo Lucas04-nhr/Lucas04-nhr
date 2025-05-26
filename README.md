@@ -110,4 +110,4 @@ Or, you can use [Patreon](https://patreon.com/lucas04) or [Afdian](https://afdia
 
 ---
 > [!TIP]
-> This README is a living document and will be updated as my journey unfolds. I've also write a [CV](https://drive.google.com/file/d/1l0_ZuJrDdkmp7azPF76MVIlxMYd13p_6/view).
+> This README is a living document and will be updated as my journey unfolds. I also write a [CV](https://drive.google.com/file/d/1l0_ZuJrDdkmp7azPF76MVIlxMYd13p_6/view).

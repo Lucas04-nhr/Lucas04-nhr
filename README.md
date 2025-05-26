@@ -105,7 +105,7 @@ Or, you can use [Patreon](https://patreon.com/lucas04) or [Afdian](https://afdia
     </a>
 </p>
 
-> [!CAUTION]
+> [!NOTE]
 > Tips from **Buy me a Coffee** is currently unavailable due to the service's restriction in my country. Please consider using **Ko-Fi**, **Patreon** or **Afdian** instead.
 
 ---

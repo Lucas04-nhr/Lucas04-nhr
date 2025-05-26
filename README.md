@@ -17,7 +17,7 @@ I'm a passionate undergraduate student at Huazhong University of Science and Tec
 - 🎓 **Education:** Studying Bioinformatics at HUST.
 - 💻 **Programming Languages:** Proficient in Python and C++, and actively engaged in crafting interesting projects.
 - 📊 **Data Analysis:** Utilizing R for in-depth analysis and visualization of biological data.
-- 🌐 **Web Development:** Experienced in JavaScript and contributed to building Wiki web pages for iGEM HUST-China [2023](https://2023.igem.wiki/hust-china) and [2024](https://2024.igem.wiki/hust-china).
+- 🌐 **Web Development:** Experienced in JavaScript and contributed to building Wiki web pages for iGEM HUST-China [2023](https://2023.igem.wiki/hust-china) and [2024](https://2024.igem.wiki/hust-china), also be an advisor to build Wiki web pages for iGEM HUST-China 2025.
 
 ## 🚀 What I Do
 
@@ -110,4 +110,4 @@ Or, you can use [Patreon](https://patreon.com/lucas04) or [Afdian](https://afdia
 
 ---
 > [!TIP]
-> This README is a living document and will be updated as my journey unfolds.
+> This README is a living document and will be updated as my journey unfolds. I've also write a [CV](https://drive.google.com/file/d/1l0_ZuJrDdkmp7azPF76MVIlxMYd13p_6/view).

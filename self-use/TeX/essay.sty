@@ -1,6 +1,8 @@
 % Include the packages
 \usepackage[UTF8]{ctex}
 \usepackage[utf8]{inputenc}
+\usepackage{titling}
+\usepackage{titlesec}
 \usepackage{subfig}
 \usepackage{enumerate}
 % \usepackage[graphicx]{realboxes}
@@ -9,11 +11,12 @@
 \usepackage{graphics}
 \usepackage{geometry}
 \usepackage{fancyhdr}
+\usepackage{lastpage}
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{minted}
-\setminted{tabsize=2}
+\usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{wasysym}
@@ -25,10 +28,21 @@
 
 % Page Setup
 \pagestyle{fancy}
-\cfoot{\thepage}
 \geometry{a4paper,left=2.8cm,right=2.8cm,top=3cm,bottom=2.5cm}
+\chead{\oldincludegraphics[width=0.3\textwidth]{fig/logo.png}}
 \usepackage[fontsize=0.05\paperwidth]{draftwatermark}
 \SetWatermarkText{}
+
+% Define Subtitle layout
+\makeatletter
+\newcommand{\subtitle}[1]{%
+	\gdef\@subtitle{#1}%
+	\posttitle{%
+		\par\vspace{0.5em}%
+		{\centering\Large #1 \par}%
+		\vspace{0.5em}}%
+}
+\makeatother
 
 % Define TikZ block styles
 \usetikzlibrary{arrows}
@@ -38,6 +52,7 @@
 \tikzstyle{process} = [thick, rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm, text centered, draw=black]
 \tikzstyle{edge} = [thick, rounded corners, draw, dashed, rectangle, inner sep=10pt]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{line} = [thick,-,>=stealth]
 \tikzstyle{twowayarrow} = [thick,<->,>=stealth]
 
 
@@ -107,14 +122,42 @@
 \renewcommand{\bfdefault}{bx}
 
 % Change font
-\setmainfont{FandolSong}[AutoFakeSlant=0.15]
-\setCJKmainfont{FandolSong}[AutoFakeSlant=0.15]
+\setmainfont{FandolSong}[AutoFakeSlant=0.3]
+\setCJKmainfont{FandolSong}[AutoFakeSlant=0.3]
 % \setmainfont{Noto Serif}
 % \setCJKmainfont{Noto Serif SC}
-\setCJKsansfont{FandolHei}[AutoFakeSlant=0.15]
+\setCJKsansfont{FandolHei}[AutoFakeSlant=0.3]
 \setmonofont{Maple Mono NF CN}[Contextuals=Alternate]
+
+% 设置 TOC 深度为 5（包含五级标题）
+\setcounter{secnumdepth}{6} % 启用所有级别的编号
+\setcounter{tocdepth}{3}    % 使所有级别显示在 TOC 中
+
+% 自定义 paragraph 和 subparagraph 的格式
+\titleclass{\paragraph}{straight}% 将 paragraph 视为独立级别
+\titleclass{\subparagraph}{straight}% 将 subparagraph 视为独立级别
+
+\titleformat{\paragraph}% 四级标题格式
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{} % 编号格式：加粗，紧跟内容
+\titleformat{\subparagraph}% 五级标题格式
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{} % 编号格式：斜体，紧跟内容
 
 
 % Add custom command
 \newcommand{\lineB}{\begin{center}\rule{\linewidth}{0.5pt}\end{center}}
 
+% minted style
+\renewcommand{\theFancyVerbLine}{\ttfamily\small\arabic{FancyVerbLine}}
+\setminted{
+	tabsize=2,
+	bgcolor=gray!10,
+	linenos,
+	numbersep=5pt,
+	breaklines,
+	breakanywhere=true,
+	fontsize=\small
+	}
+
+% Change bib style
+% Biblography
+\usepackage{bib}

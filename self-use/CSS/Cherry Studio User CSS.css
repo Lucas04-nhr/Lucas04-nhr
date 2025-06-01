@@ -41,10 +41,11 @@
     }
 }
 
-
 :root {
-  --button-hover-light: #79BF55;
-  --button-hover-dark: #009A39;
+  --chat-background-user-light: #5698C3;
+  --chat-background-user-dark: #2486B9;
+  --button-hover-light: #2983BB;
+  --button-hover-dark: #2775B6;
   --input-bg-light: #E6E6E6;
   --input-bg-dark: #202020;
   --button-border-radius: 12px;
@@ -57,7 +58,6 @@
   --short-timer: 0.2s;
   --long-timer: 0.5s;
 }
-
 
 [class^="MessageLineContainer"] {
   background: var(--chat-background);
@@ -80,43 +80,7 @@
   display: inline-block;
 }
 
-[class^="Icon"]:hover,
-[class^="ant"]:hover,
-[class^="ActionButton"]:hover,
-[class^="TopicListItem"]:hover,
-[class^="ProviderListItem"]:hover,
-[class^="MenuItem"]:hover,
-[class^="MenuButton"]:hover,
-[class^="EmojiBackground"]:hover {
-  border-radius: var(--button-border-radius-hover) !important;
-  transition: border-radius var(--short-timer) var(--animation);
-}
-
-[class^="IconItem"]:active,
-[class^="ant-avatar"]:active,
-[class^="ant-btn"]:active,
-[class^="ant-segmented-item"]:active,
-[class^="anticon"]:active,
-[class^="ant-upload"]:active,
-[class^="ant-divider"]:active,
-[class^="ant-tooltip"]:active,
-[class^="ant-message"]:active,
-[class^="ActionButton"]:active,
-[class^="TopicListItem"]:active,
-[class^="ProviderListItem"]:active,
-[class^="MenuItem"]:active,
-[class^="MenuButton"]:active,
-[class^="EmojiBackground"]:active,
-[class~="ant-dropdown-menu-item"]:active,
-[class~="ant-dropdown-menu-submenu-title"]:active,
-[class~="ant-select-selector"]:active,
-[class~="ant-select-item"]:active {
-  border-radius: var(--button-border-radius-active) !important;
-  transition: border-radius var(--short-timer) var(--animation);
-  animation: clickAnimation var(--long-timer) var(--animation);
-}
-
-/* Adapted to v1.2.8 */
+/* v1.2.8 */
 [class^="Menus"] {
   [class^="Icon"]:active {
     border-radius: var(--button-border-radius-active) !important;
@@ -125,6 +89,16 @@
   }
 }
 
+/* v1.4.0 */
+[theme-mode=light] .message-content-container-user {
+  background-color: var(--chat-background-user-light) !important;
+}
+
+[theme-mode=dark] .message-content-container-user {
+  background-color: var(--chat-background-user-dark) !important;
+}
+
+/*  MAIN */
 [class^="Icon"],
 [class^="ant"],
 [class^="ActionButton"],
@@ -199,6 +173,42 @@ body[theme-mode=dark] {
 
 [class~="message-user"] {
   animation: page-popup-left var(--short-timer) var(--animation);
+}
+
+[class^="Icon"]:hover,
+[class^="ant"]:hover,
+[class^="ActionButton"]:hover,
+[class^="TopicListItem"]:hover,
+[class^="ProviderListItem"]:hover,
+[class^="MenuItem"]:hover,
+[class^="MenuButton"]:hover,
+[class^="EmojiBackground"]:hover {
+  border-radius: var(--button-border-radius-hover) !important;
+  transition: border-radius var(--short-timer) var(--animation);
+}
+
+[class^="IconItem"]:active,
+[class^="ant-avatar"]:active,
+[class^="ant-btn"]:active,
+[class^="ant-segmented-item"]:active,
+[class^="anticon"]:active,
+[class^="ant-upload"]:active,
+[class^="ant-divider"]:active,
+[class^="ant-tooltip"]:active,
+[class^="ant-message"]:active,
+[class^="ActionButton"]:active,
+[class^="TopicListItem"]:active,
+[class^="ProviderListItem"]:active,
+[class^="MenuItem"]:active,
+[class^="MenuButton"]:active,
+[class^="EmojiBackground"]:active,
+[class~="ant-dropdown-menu-item"]:active,
+[class~="ant-dropdown-menu-submenu-title"]:active,
+[class~="ant-select-selector"]:active,
+[class~="ant-select-item"]:active {
+  border-radius: var(--button-border-radius-active) !important;
+  transition: border-radius var(--short-timer) var(--animation);
+  animation: clickAnimation var(--long-timer) var(--animation);
 }
 
 

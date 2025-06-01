@@ -1,7 +1,18 @@
 /* Added User Style */
 
 * {
-  font-family: "Maple Mono NF CN Medium", "vivo Sans Global Medium" !important;
+  font-family: Product Sans, Noto Sans SC, Maple Mono NF CN Medium !important;
+}
+
+[class^="CodeBlockWrapper"] {
+  * {
+    font-family: Maple Mono NF CN Medium !important;
+  }
+}
+
+code,
+.ant-input {
+  font-family: Maple Mono NF CN Medium !important;
 }
 
 @keyframes clickAnimation {

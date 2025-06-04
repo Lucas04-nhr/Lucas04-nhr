@@ -1,0 +1,33 @@
+name: Generate Snake Image
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 14 * * *' # 00:00 UTC+8
+
+jobs:
+  generate-snake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate Snake Image
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            static/github-snake.svg
+            static/github-snake-dark.svg?palette=github-dark
+            static/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+
+      - name: Commit and Push Snake Image
+        run: |
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add static/github-snake.svg
+            git add static/github-snake-dark.svg
+            git add static/ocean.gif
+            git commit -m "chore: Update snake image $(date +'%Y%m%d')"
+            git push
+            

@@ -31,5 +31,5 @@ jobs:
             git add static/github-snake.svg
             git add static/github-snake-dark.svg
             git add static/ocean.gif
-            git commit -m "chore: Update snake image $(date +'%Y%m%d')"
-            git push
+            git commit -m "chore: Update snake image $(date +'%Y%m%d')" || true
+            git push || true

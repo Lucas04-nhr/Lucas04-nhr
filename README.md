@@ -50,9 +50,9 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 <p align="center">
     <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&theme=tokyonight" />
-        <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&theme=transparent" />
-        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&theme=transparent" alt="lucas04-nhr" />
+        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=tokyonight" />
+        <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=transparent" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=transparent" alt="lucas04-nhr" />
     </picture>
 </p>
 

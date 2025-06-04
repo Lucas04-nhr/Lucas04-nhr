@@ -98,10 +98,10 @@ Or, you can use [Patreon](https://patreon.com/lucas04) or [Afdian](https://afdia
 
 <p align="center">
     <a href='https://patreon.com/lucas04' target='_blank'>
-        <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/patreon.png" alt='Patreon' width="50%" />
+        <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/static/patreon.png" alt='Patreon' width="50%" />
     </a>
     <a href='https://afdian.com/a/lucas04' target='_blank'>
-        <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/afdian.jpg" alt='Afdian QR code' width="50%" />
+        <img src="https://github.com/Lucas04-nhr/Lucas04-nhr/blob/main/static/afdian.jpg" alt='Afdian QR code' width="50%" />
     </a>
 </p>
 

@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 14 * * *' # 00:00 UTC+8
 
+permissions:
+  contents: write
+  
 jobs:
   generate-snake:
     runs-on: ubuntu-latest
@@ -30,4 +33,3 @@ jobs:
             git add static/ocean.gif
             git commit -m "chore: Update snake image $(date +'%Y%m%d')"
             git push
-            

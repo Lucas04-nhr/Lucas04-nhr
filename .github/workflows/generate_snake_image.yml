@@ -3,7 +3,7 @@ name: Generate Snake Image
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 14 * * *' # 00:00 UTC+8
+    - cron: '0 16 * * *' # 00:00 UTC+8
 
 permissions:
   contents: write

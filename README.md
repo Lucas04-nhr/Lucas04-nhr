@@ -39,6 +39,14 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 ### GitHub Stats
 
+<p align="center"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="static/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="static/github-snake.svg" />
+  <img alt="github-snake" src="static/github-snake.svg" />
+</picture></p>
+
+---
+
 <p align="center"> 
     <!-- <a href="https://github.com/ryo-ma/github-profile-trophy">
         <img align="center" src="https://github-profile-trophy.vercel.app/?username=lucas04-nhr" alt="lucas04-nhr" />

@@ -5,7 +5,8 @@
   font-family: Product Sans, Noto Sans SC, Maple Mono NF CN Medium !important;
 }
 
-[class^="CodeBlockWrapper"] {
+[class^="CodeBlockWrapper"],
+[class^="cm"] {
   * {
     font-family: Maple Mono NF CN Medium !important;
   }

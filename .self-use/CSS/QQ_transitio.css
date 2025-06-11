@@ -16,72 +16,72 @@
 
 /*一些动画参数*/
 @keyframes message-ltr {
-    from {
-        transform: translateX(-var(--message-magnitude)em);
-        opacity: 0%;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 100%;
-    }
+  from {
+    transform: translateX(-var(--message-magnitude) em);
+    opacity: 0%;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 100%;
+  }
 }
 @keyframes message-rtl {
-    from {
-        transform: translateX(var(--message-magnitude)em);
-        opacity: 0%;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 100%;
-    }
+  from {
+    transform: translateX(var(--message-magnitude) em);
+    opacity: 0%;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 100%;
+  }
 }
 
 @keyframes clickAnimation {
-    0% {
-        transform: scale(1); /* 开始时大小为 1 */
-    }
-    100% {
-        transform: scale(1); /* 最后恢复到原始大小 */
-    }
+  0% {
+    transform: scale(1); /* 开始时大小为 1 */
+  }
+  100% {
+    transform: scale(1); /* 最后恢复到原始大小 */
+  }
 }
 
 @keyframes clickAnimationNew {
-    0% {
-        transform: scale(1); /* 开始时大小为 1 */
-    }
-    30% {
-        transform: scale(0.9);
-    }
-    60% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1); /* 最后恢复到原始大小 */
-    }
+  0% {
+    transform: scale(1); /* 开始时大小为 1 */
+  }
+  30% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1); /* 最后恢复到原始大小 */
+  }
 }
 
 /* 消息列表 */
-[class^='recent-contact-item'],
+[class^="recent-contact-item"],
 .selected,
 .discover-list-item > .list-item__content {
-    border-radius: 25px;
-    transition: border-radius 0.2s cubic-bezier(.56, -0.37, .46, 1.58);
+  border-radius: 25px;
+  transition: border-radius 0.2s cubic-bezier(0.56, -0.37, 0.46, 1.58);
 }
 
-[class^='recent-contact-item']:hover,
+[class^="recent-contact-item"]:hover,
 .selected:hover,
 .discover-list-item > .list-item__content:hover {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .recent-contact-item--selected {
-    border-radius: 15px !important;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.2s var(--timing-function-global);
+  border-radius: 15px !important;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.2s var(--timing-function-global);
 }
 
 .recent-contact-item--selected:active {
-    animation: clickAnimation 0.01s var(--timing-function-global);
+  animation: clickAnimation 0.01s var(--timing-function-global);
 }
 
 /* 左上侧边栏 */
@@ -93,8 +93,8 @@
 .file-container,
 .user-item-container,
 .tab-item-mask {
-    border-radius: 20px !important;
-    transition: border-radius 0.2s cubic-bezier(.56, -0.37, .46, 1.58);
+  border-radius: 20px !important;
+  transition: border-radius 0.2s cubic-bezier(0.56, -0.37, 0.46, 1.58);
 }
 
 .q-input:hover,
@@ -105,7 +105,7 @@
 .file-container:hover,
 .user-item-container:hover,
 .tab-item-mask:hover {
-    border-radius: 10px !important;
+  border-radius: 10px !important;
 }
 
 .q-input__inner,
@@ -114,7 +114,7 @@
 .file-type-clicked,
 .user-list-clicked,
 .tab-item-mask.is-active {
-    border-radius: 10px !important;
+  border-radius: 10px !important;
 }
 
 .nav-item:active,
@@ -128,17 +128,17 @@
 .msg-content-container:active,
 .image-viewer__icon:active,
 .message-content-replace:active {
-    animation: clickAnimationNew 0.5s cubic-bezier(.56, -0.37, .46, 1.58);
+  animation: clickAnimationNew 0.5s cubic-bezier(0.56, -0.37, 0.46, 1.58);
 }
 
 /* 设置界面 */
 button.q-button:active,
 setting-button:active,
 setting-select:active {
-    animation: clickAnimationNew 0.5s cubic-bezier(.56, -0.37, .46, 1.58);
+  animation: clickAnimationNew 0.5s cubic-bezier(0.56, -0.37, 0.46, 1.58);
 }
 
 /* 搜索页面 */
 .search-recommend-wrap {
-    display: none;
+  display: none;
 }

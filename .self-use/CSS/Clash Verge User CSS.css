@@ -34,7 +34,7 @@
   --button-border-radius: 12px;
   --button-border-radius-hover: 8px;
   --button-border-radius-active: 12px;
-  --animation: cubic-bezier(.56, -0.37, .46, 1.58);
+  --animation: cubic-bezier(0.56, -0.37, 0.46, 1.58);
   --short-timer: 0.2s;
   --long-timer: 0.5s;
 }

@@ -105,15 +105,20 @@ code,
   animation: clickAnimation var(--long-timer) var(--animation);
 }
 
-[theme-mode="light"] [class^="PageContainer"] {
+[theme-mode="light"] [class^="PageContainer"],
+[theme-mode="light"] [class^="MainMenu"],
+[theme-mode="light"] [class^="UserMenu"],
+[theme-mode="light"] .home-tabs {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
-[theme-mode="dark"] [class^="PageContainer"] {
+
+[theme-mode="dark"] [class^="PageContainer"],
+[theme-mode="dark"] [class^="MainMenu"],
+[theme-mode="dark"] [class^="UserMenu"],
+[theme-mode="dark"] .home-tabs {
   background-color: var(--background-dark-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 /*  MAIN */

@@ -73,8 +73,8 @@ code,
   --animation: cubic-bezier(0.56, -0.37, 0.46, 1.58);
   --short-timer: 0.2s;
   --long-timer: 0.5s;
-  --background-light-aero: rgba(255, 255, 255, 0.55);
-  --background-dark-aero: rgba(36, 36, 36, 0.55);
+  --background-light-aero: rgba(255, 255, 255, 0.1);
+  --background-dark-aero: rgba(36, 36, 36, 0.1);
 }
 
 /* v1.2.8 */
@@ -108,6 +108,7 @@ code,
 [theme-mode="light"] [class^="PageContainer"],
 [theme-mode="light"] [class^="MainMenu"],
 [theme-mode="light"] [class^="UserMenu"],
+[theme-mode="light"] [class^="NavbarContainer"],
 [theme-mode="light"] .home-tabs {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
@@ -116,6 +117,7 @@ code,
 [theme-mode="dark"] [class^="PageContainer"],
 [theme-mode="dark"] [class^="MainMenu"],
 [theme-mode="dark"] [class^="UserMenu"],
+[theme-mode="dark"] [class^="NavbarContainer"],
 [theme-mode="dark"] .home-tabs {
   background-color: var(--background-dark-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);

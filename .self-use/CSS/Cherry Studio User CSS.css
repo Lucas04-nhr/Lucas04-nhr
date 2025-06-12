@@ -58,6 +58,8 @@ code,
 
 /*  Color*/
 :root {
+  --background-light-aero: rgba(255, 255, 255, 0.1);
+  --background-dark-aero: rgba(36, 36, 36, 0.1);
   --chat-background-user-light: #5698c3;
   --chat-background-user-dark: #2b73af;
   --button-hover-light: #2983bb;
@@ -73,7 +75,7 @@ code,
   --animation: cubic-bezier(0.56, -0.37, 0.46, 1.58);
   --short-timer: 0.2s;
   --long-timer: 0.5s;
-  --background-light-aero: rgba(255, 255, 255, 0.1);
+  --background-light-aero: rgba(255, 255, 255, 0.3);
   --background-dark-aero: rgba(36, 36, 36, 0.1);
 }
 

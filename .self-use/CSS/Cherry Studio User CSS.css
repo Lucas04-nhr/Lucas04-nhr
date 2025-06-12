@@ -73,6 +73,8 @@ code,
   --animation: cubic-bezier(0.56, -0.37, 0.46, 1.58);
   --short-timer: 0.2s;
   --long-timer: 0.5s;
+  --background-light-aero: rgba(255, 255, 255, 0.55);
+  --background-dark-aero: rgba(36, 36, 36, 0.55);
 }
 
 /* v1.2.8 */
@@ -91,6 +93,27 @@ code,
 
 [theme-mode="dark"] .message-content-container-user {
   background-color: var(--chat-background-user-dark) !important;
+}
+
+/* v1.4.2-ui-preview */
+[class^="MainMenuItem"]:active,
+.rc-virtual-list-holder-inner .ant-dropdown-trigger:active,
+[class^="ListItemContainer"]:active,
+[class^="AgentCardContainer"]:active {
+  border-radius: var(--button-border-radius-active) !important;
+  transition: border-radius var(--short-timer) var(--animation);
+  animation: clickAnimation var(--long-timer) var(--animation);
+}
+
+[theme-mode="light"] [class^="PageContainer"] {
+  background-color: var(--background-light-aero) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+[theme-mode="dark"] [class^="PageContainer"] {
+  background-color: var(--background-dark-aero) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 /*  MAIN */
@@ -251,6 +274,18 @@ body[theme-mode="light"] {
   --color-black-mute: var(--fill-3);
 }
 
+/* Fix Quick Assistant's transparent background on Windows (text hard to see) */
+body[theme-mode="light"][os="windows"] {
+  --color-background: hsla(0 0 100% / 1);
+  --color-background-opacity: hsla(0 0 90% / 0.6);
+}
+
+/* Fix Quick Assistant's transparent background on Windows (text hard to see) */
+body[theme-mode="dark"][os="windows"] {
+  --color-background: hsla(0 0 8% / 1);
+  --color-background-opacity: hsla(0 0 8% / 0.6);
+}
+
 @media (prefers-color-scheme: dark) {
   body[theme-mode="light"] {
     background: rgba(255 255 255 / 0.3);
@@ -276,7 +311,8 @@ body[theme-mode="light"] {
 .home-tabs,
 [class^="ProgramSection"],
 [class^="IconSection"],
-#messages {
+#messages,
+[class^="SettingContainer"] {
   background-color: transparent;
 }
 
@@ -285,7 +321,9 @@ body[theme-mode="light"] {
 }
 
 #inputbar,
-.system-prompt {
+.system-prompt,
+[class^="CardContent"],
+[class^="ServerCard"] {
   background-color: var(--fill-1);
 }
 
@@ -296,11 +334,25 @@ body[theme-mode="light"] {
   background-color: hsla(0 0% 100% / 0.4);
 }
 
+/* On the right side of "Model Provider" in Settings */
+[theme-mode="light"]
+  [class^="ProviderListContainer"]
+  + [class^="SettingContainer"] {
+  background: hsla(0 0% 100% / 0.4) !important;
+}
+
 [theme-mode="dark"] #chat,
 [theme-mode="dark"] [class^="SettingGroup"],
 [theme-mode="dark"] [class^="MainContainer"],
 [theme-mode="dark"] [class^="MainContent"] {
   background-color: hsla(0 0% 0% / 0.2);
+}
+
+/* On the right side of "Model Provider" in Settings */
+[theme-mode="dark"]
+  [class^="ProviderListContainer"]
+  + [class^="SettingContainer"] {
+  background: hsla(0 0% 0% / 0.2) !important;
 }
 
 [theme-mode="light"] [class^="ant-modal"],

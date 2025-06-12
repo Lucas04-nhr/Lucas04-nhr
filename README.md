@@ -132,7 +132,6 @@ Or, you can use [Patreon](https://patreon.com/lucas04) or [Afdian](https://afdia
 > [!NOTE]
 > Tips from **Buy me a Coffee** is currently unavailable due to the service's restriction in my country. Please consider using **Ko-Fi**, **Patreon** or **Afdian** instead.
 
-
 ---
 > [!TIP]
 > This README is a living document and will be updated as my journey unfolds. I also write a [CV](https://drive.google.com/file/d/1l0_ZuJrDdkmp7azPF76MVIlxMYd13p_6/view).

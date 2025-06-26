@@ -138,7 +138,7 @@ code,
 [theme-mode="light"] [class^="MainMenusContainer"],
 [theme-mode="light"] [class^="ContentContainer"],
 [theme-mode="light"] .home-tabs,
-[theme-mode="light"] .inputbar,
+/* [theme-mode="light"] .inputbar, */
 [theme-mode="light"] .bubble,
 [theme-mode="light"] #chat,
 [theme-mode="light"] #messages,
@@ -155,7 +155,7 @@ code,
 [theme-mode="dark"] [class^="MainMenusContainer"],
 [theme-mode="dark"] [class^="ContentContainer"],
 [theme-mode="dark"] .home-tabs,
-[theme-mode="dark"] .inputbar,
+/* [theme-mode="dark"] .inputbar, */
 [theme-mode="dark"] .bubble,
 [theme-mode="dark"] #chat,
 [theme-mode="dark"] #messages,
@@ -175,12 +175,18 @@ code,
   max-height: calc(100vh - var(--navbar-height) - 15px) !important;
   max-width: calc(100vw - var(--sidebar-width) - 15px) !important;
 }
+
 .inputbar {
-  padding-bottom: 10px !important;
+  margin: 1.5em 0;
+  background-color: transparent !important;
+}
+
+#chat {
+  margin: 1em;
 }
 
 #messages {
-  margin: 1.5em !important; /* Adjust margin to prevent overlap with input bar */
+  margin-left: 1.5em !important; /* Adjust margin to prevent overlap with input bar */
 }
 
 [class^="SettingContainer"],

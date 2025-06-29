@@ -150,52 +150,20 @@ code,
   backdrop-filter: blur(16px) saturate(180%);
 }
 
+[theme-mode="light"] [class~="ant-dropdown-trigger"],
+[theme-mode="light"] [class^="IconItem"],
+[theme-mode="light"] [class^="TopicListItem"],
 [theme-mode="light"] [class^="ProviderListItem"] {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px);
 }
 
+[theme-mode="dark"] [class~="ant-dropdown-trigger"],
+[theme-mode="dark"] [class^="IconItem"],
+[theme-mode="dark"] [class^="TopicListItem"],
 [theme-mode="dark"] [class^="ProviderListItem"] {
   background-color: var(--background-dark-aero) !important;
   backdrop-filter: blur(16px);
-}
-
-/* Fix some paddings and background colors */
-[class^="MainMenusContainer"] {
-  padding: 2px;
-}
-
-[class^="ContentContainer"] {
-  margin: 5px;
-  max-height: calc(100vh - var(--navbar-height) - 15px) !important;
-  max-width: calc(100vw - var(--sidebar-width) - 15px) !important;
-}
-
-.inputbar {
-  margin: 1.5em 0;
-  background-color: transparent !important;
-}
-
-#chat {
-  margin: 1em;
-}
-
-#messages {
-  margin-left: 1.5em !important; /* Adjust margin to prevent overlap with input bar */
-}
-
-[class^="SettingContainer"],
-[class^="ProviderListContainer"] {
-  height: 100% !important; /* Ensure it matches the height of the parent element */
-}
-
-[theme-mode=light].bubble #messages,
-[theme-mode=light] #chat{
-  background-color: var(--background-light-aero) !important;
-}
-[theme-mode=dark].bubble #messages,
-[theme-mode=dark] #chat {
-  background-color: var(--background-dark-aero) !important;
 }
 
 /*  MAIN */

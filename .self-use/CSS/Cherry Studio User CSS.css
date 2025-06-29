@@ -174,11 +174,17 @@ code,
   backdrop-filter: blur(16px) saturate(180%);
 }
 
+[theme-mode="light"] [class~="ant-dropdown-trigger"],
+[theme-mode="light"] [class^="IconItem"],
+[theme-mode="light"] [class^="TopicListItem"],
 [theme-mode="light"] [class^="ProviderListItem"] {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px);
 }
 
+[theme-mode="dark"] [class~="ant-dropdown-trigger"],
+[theme-mode="dark"] [class^="IconItem"],
+[theme-mode="dark"] [class^="TopicListItem"],
 [theme-mode="dark"] [class^="ProviderListItem"] {
   background-color: var(--background-dark-aero) !important;
   backdrop-filter: blur(16px);

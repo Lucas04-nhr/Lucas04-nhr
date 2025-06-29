@@ -298,10 +298,10 @@ body[theme-mode="dark"] {
   animation: page-popup-left var(--short-timer) var(--animation);
 }
 
-[class^="Icon"]:hover,
 [class^="ant"]:hover,
 [class^="ActionButton"]:hover,
 [class^="TopicListItem"]:hover,
+[class^="IconItem"]:hover,
 [class^="ProviderListItem"]:hover,
 [class^="MenuItem"]:hover,
 [class^="MenuButton"]:hover,
@@ -310,7 +310,6 @@ body[theme-mode="dark"] {
   transition: border-radius var(--short-timer) var(--animation);
 }
 
-[class^="IconItem"]:active,
 [class^="ant-avatar"]:active,
 [class^="ant-btn"]:active,
 [class^="ant-segmented-item"]:active,
@@ -321,6 +320,7 @@ body[theme-mode="dark"] {
 [class^="ant-message"]:active,
 [class^="ActionButton"]:active,
 [class^="TopicListItem"]:active,
+[class^="IconItem"]:active,
 [class^="ProviderListItem"]:active,
 [class^="MenuItem"]:active,
 [class^="MenuButton"]:active,

@@ -153,8 +153,7 @@ code,
 [theme-mode="light"] .bubble,
 [theme-mode="light"] #chat,
 [theme-mode="light"] #messages,
-[theme-mode="light"] [class^="SettingContainer"],
-[theme-mode="light"] [class^="ProviderListContainer"] {
+[theme-mode="light"] [class^="SettingContainer"] {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
 }
@@ -170,10 +169,19 @@ code,
 [theme-mode="dark"] .bubble,
 [theme-mode="dark"] #chat,
 [theme-mode="dark"] #messages,
-[theme-mode="dark"] [class^="SettingContainer"],
-[theme-mode="dark"] [class^="ProviderListContainer"] {
+[theme-mode="dark"] [class^="SettingContainer"] {
   background-color: var(--background-dark-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
+}
+
+[theme-mode="light"] [class^="ProviderListItem"] {
+  background-color: var(--background-light-aero) !important;
+  backdrop-filter: blur(16px);
+}
+
+[theme-mode="dark"] [class^="ProviderListItem"] {
+  background-color: var(--background-dark-aero) !important;
+  backdrop-filter: blur(16px);
 }
 
 /* Fix some paddings and background colors */

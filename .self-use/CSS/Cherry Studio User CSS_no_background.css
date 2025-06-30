@@ -8,7 +8,7 @@
 [class^="CodeBlockWrapper"],
 [class^="cm"] {
   * {
-    font-family: Maple Mono NF CN Medium !important;
+    font-family: Maple Mono NF CN Medium, monospace !important;
   }
 }
 

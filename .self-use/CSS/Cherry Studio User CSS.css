@@ -4,11 +4,10 @@
 body {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
-  background-image: url(/Users/lucas/Pictures/壁纸/zzz/ZZZ\ Wallpaper\ 2025/6月月历壁纸_PC版.jpg);
+  background-image: url(/Users/lucas/Pictures/壁纸/zzz/ZZZ\ Wallpaper\ 2025/7月月历壁纸_PC版.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.9;
-  backdrop-filter: blur(10px);
   &::before {
     content: "";
     position: absolute;
@@ -19,7 +18,7 @@ body {
     background-image: inherit;
     background-size: inherit;
     background-repeat: inherit;
-    filter: blur(20px);
+    filter: blur(40px);
     z-index: -1;
   }
 }
@@ -135,6 +134,7 @@ code,
 [theme-mode="light"] [class^="PageContainer"],
 [theme-mode="light"] [class^="MainMenu"],
 [theme-mode="light"] [class^="UserMenu"],
+[theme-mode="light"] [class^="ScrollContainer"],
 [theme-mode="light"] [class^="NavbarContainer"],
 [theme-mode="light"] [class^="MainMenusContainer"],
 [theme-mode="light"] [class^="ContentContainer"],
@@ -151,6 +151,7 @@ code,
 [theme-mode="dark"] [class^="PageContainer"],
 [theme-mode="dark"] [class^="MainMenu"],
 [theme-mode="dark"] [class^="UserMenu"],
+[theme-mode="dark"] [class^="ScrollContainer"],
 [theme-mode="dark"] [class^="NavbarContainer"],
 [theme-mode="dark"] [class^="MainMenusContainer"],
 [theme-mode="dark"] [class^="ContentContainer"],
@@ -202,6 +203,10 @@ code,
 
 #messages {
   margin-left: 1.5em !important; /* Adjust margin to prevent overlap with input bar */
+}
+
+[class^="SettingGroup"] {
+  padding: 1em;
 }
 
 [class^="SettingContainer"],

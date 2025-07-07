@@ -1,4 +1,4 @@
-/* Pulse Interactive User Style v3.0 */
+/* Pulse Interactive User Style v3.1.0 */
 
 /*  Font */
 * {
@@ -88,7 +88,7 @@ code,
   }
 }
 
-/* v1.4.0*/
+/* v1.4.0 */
 
 [theme-mode="light"] .message-content-container-user {
   background-color: var(--chat-background-user-light) !important;
@@ -111,6 +111,7 @@ code,
 [theme-mode="light"] [class^="PageContainer"],
 [theme-mode="light"] [class^="MainMenu"],
 [theme-mode="light"] [class^="UserMenu"],
+[theme-mode="light"] [class^="ScrollContainer"],
 [theme-mode="light"] [class^="NavbarContainer"],
 [theme-mode="light"] [class^="MainMenusContainer"],
 [theme-mode="light"] [class^="ContentContainer"],
@@ -127,6 +128,7 @@ code,
 [theme-mode="dark"] [class^="PageContainer"],
 [theme-mode="dark"] [class^="MainMenu"],
 [theme-mode="dark"] [class^="UserMenu"],
+[theme-mode="dark"] [class^="ScrollContainer"],
 [theme-mode="dark"] [class^="NavbarContainer"],
 [theme-mode="dark"] [class^="MainMenusContainer"],
 [theme-mode="dark"] [class^="ContentContainer"],
@@ -154,6 +156,48 @@ code,
 [theme-mode="dark"] [class^="ProviderListItem"] {
   background-color: var(--background-dark-aero) !important;
   backdrop-filter: blur(16px);
+}
+
+/* Fix some paddings and background colors */
+[class^="MainMenusContainer"] {
+  padding: 2px;
+}
+
+[class^="ContentContainer"] {
+  margin: 5px;
+  max-height: calc(100vh - var(--navbar-height) - 15px) !important;
+  max-width: calc(100vw - var(--sidebar-width) - 15px) !important;
+}
+
+.inputbar {
+  margin: 1.5em 0;
+  background-color: transparent !important;
+}
+
+#chat {
+  margin: 1em;
+}
+
+#messages {
+  margin-left: 1.5em !important; /* Adjust margin to prevent overlap with input bar */
+}
+
+[class^="SettingGroup"] {
+  padding: 1em;
+}
+
+[class^="SettingContainer"],
+[class^="ProviderListContainer"] {
+  height: 100% !important; /* Ensure it matches the height of the parent element */
+}
+
+[theme-mode=light].bubble #messages,
+[theme-mode=light] #chat{
+  background-color: var(--background-light-aero) !important;
+}
+[theme-mode=dark].bubble #messages,
+[theme-mode=dark] #chat {
+  background-color: var(--background-dark-aero) !important;
 }
 
 /*  MAIN */

@@ -223,6 +223,42 @@ code,
   background-color: var(--background-dark-aero) !important;
 }
 
+/*  v1.5.2 */
+[theme-mode="light"] [class^="Tab-"]:hover,
+[theme-mode="light"] [class^="AddTabButton"]:hover,
+[theme-mode="light"] [class^="ThemeButton"]:hover,
+[theme-mode="light"] [class^="SettingsButton"]:hover {
+  backdrop-filter: blur(16px);
+  border-radius: var(--button-border-radius-hover);
+  background: var(--background-assistant-light-new) !important;
+}
+
+[theme-mode="light"] [class^="Tab-"],
+[theme-mode="light"] [class^="AddTabButton"],
+[theme-mode="light"] [class^="ThemeButton"],
+[theme-mode="light"] [class^="SettingsButton"] {
+  backdrop-filter: blur(16px);
+  border-radius: var(--button-border-radius);
+  background: var(--background-light-aero) !important;
+}
+
+[theme-mode="dark"] [class^="Tab-"]:hover,
+[theme-mode="dark"] [class^="AddTabButton"]:hover,
+[theme-mode="dark"] [class^="ThemeButton"]:hover,
+[theme-mode="dark"] [class^="SettingsButton"]:hover {
+  backdrop-filter: blur(16px);
+  border-radius: var(--button-border-radius-hover);
+  background: var(--background-dark-aero) !important;
+}
+
+[class^="Tab-"]:active,
+[class^="AddTabButton"]:active,
+[class^="ThemeButton"]:active,
+[class^="SettingsButton"]:active {
+  border-radius: var(--button-border-radius-active);
+  animation: clickAnimation var(--long-timer) var(--animation);
+}
+
 /*  MAIN */
 [class^="MessageLineContainer"] {
   background: var(--chat-background);

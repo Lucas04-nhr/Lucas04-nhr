@@ -1,4 +1,4 @@
-/* Pulse Interactive User Style v3.0 */
+/* Pulse Interactive User Style v4.0 */
 
 /*  Background */
 body {
@@ -258,6 +258,16 @@ code,
 [class^="SettingsButton"]:active {
   border-radius: var(--button-border-radius-active);
   animation: clickAnimation var(--long-timer) var(--animation);
+}
+
+/* v1.5.11 */
+[class^="AboutHeader"] {
+  span.ant-avatar-css-var {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
 }
 
 /*  MAIN */

@@ -247,6 +247,18 @@ code,
   animation: clickAnimation var(--long-timer) var(--animation);
 }
 
+/*  v1.5.11 */
+[class^="AboutHeader"] {
+  span.ant-avatar-css-var,
+  circle.ant-progress-circle-path {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+}
+
+
 /*  MAIN */
 [class^="MessageLineContainer"] {
   background: var(--chat-background);

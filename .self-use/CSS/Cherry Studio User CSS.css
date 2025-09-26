@@ -262,7 +262,8 @@ code,
 
 /* v1.5.11 */
 [class^="AboutHeader"] {
-  span.ant-avatar-css-var {
+  span.ant-avatar-css-var,
+  circle.ant-progress-circle-path {
     width: 50px !important;
     height: 50px !important;
     min-width: 50px !important;

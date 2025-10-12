@@ -47,30 +47,29 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
     <img alt="github-snake" src="static/github-snake.svg" />
     </picture>
 </p>
-
-<p align="center">
+<!-- <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=tokyonight" />
         <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=transparent" />
         <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=transparent" alt="lucas04-nhr" />
     </picture>
-</p>
+</p> -->
 
-<p align="center">
+<!-- <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=lucas04-nhr&show_icons=true&locale=en&theme=tokyonight" />
         <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=lucas04-nhr&show_icons=true&locale=en&theme=transparent" />
         <img src="https://github-readme-stats.vercel.app/api?username=lucas04-nhr&show_icons=true&locale=en&theme=transparent" alt="lucas04-nhr" />
     </picture>
-</p>
+</p> -->
 
-<p align="center">
+<!-- <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=lucas04-nhr&theme=tokyonight" />
         <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=lucas04-nhr&theme=transparent" />
         <img src="https://github-readme-streak-stats.herokuapp.com/?user=lucas04-nhr&theme=transparent" alt="lucas04-nhr" />
     </picture>
-</p>
+</p> -->
 
 ### Languages and Tools
 

@@ -42,14 +42,6 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
 
 <p align="center">
     <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="static/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="static/github-snake.svg" />
-    <img alt="github-snake" src="static/github-snake.svg" />
-    </picture>
-</p>
-
-<p align="center">
-    <picture>
     <img alt="github-metrics" src="github-metrics.svg" />
     </picture>
 </p>
@@ -94,6 +86,16 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Swift/Swift.png?raw=true" alt="Swift" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Html/HTML.png?raw=true" alt="HTML" style="width: 160px; height: 90px; margin: 10px 10px;">
     <img src="https://github.com/Lucas04-nhr/ServiceLogos/blob/main/Ubuntu/Ubuntu.png?raw=true" alt="Ubuntu" style="width: 160px; height: 90px; margin: 10px 10px;">
+</p>
+
+### Commit Activity
+
+<p align="center">
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="static/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="static/github-snake.svg" />
+    <img alt="github-snake" src="static/github-snake.svg" />
+    </picture>
 </p>
 
 ## 📮 Contact Me

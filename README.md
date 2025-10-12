@@ -47,6 +47,13 @@ If you share similar interests or have exciting ideas for collaboration, feel fr
     <img alt="github-snake" src="static/github-snake.svg" />
     </picture>
 </p>
+
+<p align="center">
+    <picture>
+    <img alt="github-metrics" src="github-metrics.svg" />
+    </picture>
+</p>
+
 <!-- <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs?username=lucas04-nhr&show_icons=true&locale=en&layout=compact&hide=html&theme=tokyonight" />

@@ -17,13 +17,13 @@
 
 I'm a passionate undergraduate student at Huazhong University of Science and Technology (HUST), majoring in Bioinformatics at the College of Life Science and Technology.
 
-<p align="center">
+<p align="center"><a href="https://blog.lucas04.top/" target="_blank">
     <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://static.lucas04.top/static/blog_preview_night.png" />
     <source media="(prefers-color-scheme: light)" srcset="https://static.lucas04.top/static/blog_preview.png" />
-    <a href="https://blog.lucas04.top/" target="_blank"><img src="https://static.lucas04.top/static/blog_preview.png" alt="Typing SVG" /></a>
+    <img src="https://static.lucas04.top/static/blog_preview.png" alt="My Blog" />
     </picture>
-</p>
+</a></p>
 
 Learn more about me on my [blog](https://blog.lucas04.top/about).
 

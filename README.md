@@ -1,8 +1,8 @@
 <p align="center">
     <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://static.lucas04.top/static/typing_night.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://static.lucas04.top/static/typing_day.svg" />
-    <img src="https://static.lucas04.top/static/typing_day.svg" alt="Typing SVG" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://static.lucas04.top/typing_night.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://static.lucas04.top/typing_day.svg" />
+    <img src="https://static.lucas04.top/typing_day.svg" alt="Typing SVG" />
     </picture>
 </p>
 
@@ -13,6 +13,7 @@
 </p>
 
 ---
+
 ## Hi there!
 
 I'm a passionate undergraduate student at Huazhong University of Science and Technology (HUST), majoring in Bioinformatics at the College of Life Science and Technology.
@@ -22,9 +23,9 @@ I'm a passionate undergraduate student at Huazhong University of Science and Tec
 
 <p align="center"><a href="https://blog.lucas04.top/about" target="_blank">
     <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://static.lucas04.top/static/blog_preview_night.png" />
-    <source media="(prefers-color-scheme: light)" srcset="https://static.lucas04.top/static/blog_preview.png" />
-    <img src="https://static.lucas04.top/static/blog_preview.png" alt="My Blog" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://static.lucas04.top/blog_preview_night.png" />
+    <source media="(prefers-color-scheme: light)" srcset="https://static.lucas04.top/blog_preview.png" />
+    <img src="https://static.lucas04.top/blog_preview.png" alt="My Blog" />
     </picture>
 </a></p>
 

@@ -1,0 +1,729 @@
+/*
+ * Pulse Interactive User Style v5.0
+ * Cherry Studio V2
+ *
+ * Migrated from Pulse Interactive User Style v4.0 / Cherry Studio V1
+ *
+ * V2 principles:
+ * - Prefer semantic CSS variables
+ * - Prefer [data-ui~="..."] semantic selectors
+ * - Avoid generated/internal React class selectors
+ * - Avoid unnecessary !important
+ */
+
+
+/* ============================================================
+ * Variables
+ * ============================================================ */
+
+:root {
+  /* Pulse Aero */
+  --pulse-background-aero: rgb(243 243 243 / 15%);
+  --pulse-panel-aero: rgb(255 255 255 / 35%);
+  --pulse-panel-aero-strong: rgb(255 255 255 / 45%);
+
+  --pulse-chat-user: #5698c3;
+
+  --pulse-input-bg: rgb(230 230 230 / 75%);
+  --pulse-hover-bg: rgb(227 227 227 / 70%);
+
+  --pulse-radius: 12px;
+  --pulse-radius-hover: 8px;
+  --pulse-radius-active: 12px;
+
+  --pulse-animation: cubic-bezier(0.56, -0.37, 0.46, 1.58);
+  --pulse-short-timer: 0.2s;
+  --pulse-long-timer: 0.5s;
+
+  /*
+   * Cherry Studio V2 public semantic contract.
+   *
+   * This is the V2 replacement for modifying old
+   * --chat-background / --color-* / V1 renderer variables.
+   */
+  --chat-user: var(--pulse-chat-user);
+
+  --radius: var(--pulse-radius);
+}
+
+.dark {
+  --pulse-background-aero: rgb(36 36 36 / 15%);
+  --pulse-panel-aero: rgb(0 0 0 / 20%);
+  --pulse-panel-aero-strong: rgb(0 0 0 / 30%);
+
+  --pulse-chat-user: #2b73af;
+
+  --pulse-input-bg: rgb(32 32 32 / 80%);
+  --pulse-hover-bg: rgb(55 55 55 / 70%);
+
+  --chat-user: var(--pulse-chat-user);
+}
+
+
+/* ============================================================
+ * Wallpaper / Aero background
+ * ============================================================ */
+
+body[data-ui~="app.window"] {
+  position: relative;
+
+  background-color: var(--pulse-background-aero);
+  background-image:
+    linear-gradient(
+      var(--pulse-background-aero),
+      var(--pulse-background-aero)
+    ),
+    url("https://static.lucas04.top/static/background.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/*
+ * The old V1 body::before implementation used z-index:-1.
+ * In Electron that could disappear underneath the renderer root.
+ * V2 version creates the blurred wallpaper as its own fixed layer.
+ */
+body[data-ui~="app.window"]::before {
+  content: "";
+
+  position: fixed;
+  inset: -40px;
+
+  pointer-events: none;
+
+  background-image:
+    url("https://static.lucas04.top/static/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(40px);
+  transform: scale(1.06);
+
+  opacity: 0.9;
+
+  z-index: -1;
+}
+
+
+/* ============================================================
+ * Typography
+ * ============================================================ */
+
+body[data-ui~="app.window"] {
+  font-family:
+    "Product Sans",
+    "MiSans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Inter,
+    "Roboto Flex",
+    "Noto Sans",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-feature-settings:
+    "calt",
+    "cv07",
+    "cv40",
+    "ss03",
+    "ss07",
+    "ss08",
+    "ss09",
+    "ss10",
+    "ss11";
+}
+
+/*
+ * Stable V2 code-block selector.
+ */
+[data-ui~="part:code-block"],
+[data-ui~="part:code-block"] *,
+code,
+pre,
+kbd,
+samp {
+  font-family:
+    "Maple Mono NF CN Medium",
+    "Maple Mono NF CN",
+    monospace;
+}
+
+/*
+ * Ant Design based inputs may still exist inside some V2 pages.
+ * These are vendor selectors, not Cherry Studio semantic API,
+ * so keep them only as compatibility fallbacks.
+ */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-modal-confirm-content {
+  font-family:
+    "Maple Mono NF CN Medium",
+    "Maple Mono NF CN",
+    monospace;
+}
+
+
+/* ============================================================
+ * Animation
+ * ============================================================ */
+
+@keyframes pulse-click {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(0.9);
+  }
+
+  60% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-popup {
+  from {
+    transform: translateX(-2em);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-popup-reverse {
+  from {
+    transform: translateX(2em);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+/* ============================================================
+ * Main application shell
+ *
+ * V1:
+ * MainMenu
+ * NavbarContainer
+ * MainMenusContainer
+ * ContentContainer
+ *
+ * V2:
+ * app.sidebar
+ * app.tab-bar
+ * app.content
+ * ============================================================ */
+
+[data-ui~="app.sidebar"],
+[data-ui~="app.tab-bar"],
+[data-ui~="app.content"] {
+  background: var(--pulse-background-aero);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  border-radius: var(--pulse-radius);
+}
+
+
+/* ============================================================
+ * Sidebar
+ * ============================================================ */
+
+[data-ui~="app.sidebar"] {
+  background-color: var(--pulse-panel-aero);
+}
+
+
+/*
+ * Also let native V2 sidebar semantic colors participate.
+ */
+:root {
+  --sidebar: rgb(255 255 255 / 22%);
+}
+
+.dark {
+  --sidebar: rgb(0 0 0 / 18%);
+}
+
+
+/* ============================================================
+ * Main content
+ * ============================================================ */
+
+[data-ui~="app.content"] {
+  margin: 5px;
+
+  max-height: calc(100vh - 15px);
+}
+
+
+/* ============================================================
+ * Chat
+ * ============================================================ */
+
+[data-ui~="chat.view"] {
+  margin: 1em;
+
+  background: var(--pulse-panel-aero);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="chat.message-list"] {
+  margin-left: 1.5em;
+
+  background: transparent;
+}
+
+
+/*
+ * V2 stable message boundary.
+ *
+ * Do not target MessageLineContainer / MessageContainer anymore.
+ */
+[data-ui~="chat.message"] {
+  border-radius: var(--pulse-radius);
+
+  animation:
+    pulse-popup
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+
+/*
+ * Message content itself.
+ */
+[data-ui~="part:message-content"] {
+  border-radius: var(--pulse-radius);
+}
+
+
+/*
+ * User bubble color is controlled through --chat-user.
+ *
+ * This replaces:
+ *
+ * .message-content-container-user {
+ *   background-color: ...
+ * }
+ */
+:root {
+  --chat-user: #5698c3;
+}
+
+.dark {
+  --chat-user: #2b73af;
+}
+
+
+/* ============================================================
+ * Message actions
+ * ============================================================ */
+
+[data-ui~="part:message-actions"] {
+  border-radius: var(--pulse-radius);
+}
+
+
+/* ============================================================
+ * Reasoning
+ * ============================================================ */
+
+[data-ui~="part:message-reasoning"] {
+  border-radius: var(--pulse-radius);
+}
+
+
+/* ============================================================
+ * Composer / Input bar
+ *
+ * V1:
+ * #inputbar
+ * .inputbar
+ * InputContainer
+ *
+ * V2:
+ * chat.composer
+ * part:composer-input
+ * part:composer-actions
+ * ============================================================ */
+
+[data-ui~="chat.composer"] {
+  margin: 1.5em 0;
+
+  background: transparent;
+
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="part:composer-input"] {
+  background: var(--pulse-input-bg);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="part:composer-actions"] {
+  border-radius: var(--pulse-radius);
+}
+
+
+/* Send / Pause buttons */
+
+[data-ui~="chat.composer.action.send"],
+[data-ui~="chat.composer.action.pause"] {
+  border-radius: var(--pulse-radius);
+
+  transition:
+    border-radius
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+[data-ui~="chat.composer.action.send"]:hover,
+[data-ui~="chat.composer.action.pause"]:hover {
+  border-radius: var(--pulse-radius-hover);
+}
+
+[data-ui~="chat.composer.action.send"]:active,
+[data-ui~="chat.composer.action.pause"]:active {
+  border-radius: var(--pulse-radius-active);
+
+  animation:
+    pulse-click
+    var(--pulse-long-timer)
+    var(--pulse-animation);
+}
+
+
+/* ============================================================
+ * Conversation layout
+ * ============================================================ */
+
+[data-ui~="part:conversation-navigation"],
+[data-ui~="part:conversation-main"],
+[data-ui~="part:conversation-inspector"] {
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="part:conversation-main"] {
+  background: var(--pulse-panel-aero);
+}
+
+
+/* ============================================================
+ * Topic list
+ * ============================================================ */
+
+[data-ui~="chat.topic-list"] {
+  background: transparent;
+
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="chat.topic-list.action.create"] {
+  border-radius: var(--pulse-radius);
+
+  transition:
+    border-radius
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+[data-ui~="chat.topic-list.action.create"]:hover {
+  border-radius: var(--pulse-radius-hover);
+}
+
+[data-ui~="chat.topic-list.action.create"]:active {
+  border-radius: var(--pulse-radius-active);
+
+  animation:
+    pulse-click
+    var(--pulse-long-timer)
+    var(--pulse-animation);
+}
+
+
+/* ============================================================
+ * Settings
+ *
+ * V1:
+ * SettingContainer
+ * SettingContent
+ * SettingGroup
+ * ProviderListContainer
+ *
+ * V2:
+ * settings.view
+ * settings.navigation
+ * settings.content
+ * ============================================================ */
+
+[data-ui~="settings.view"] {
+  background: var(--pulse-background-aero);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="settings.navigation"] {
+  background: var(--pulse-panel-aero);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: var(--pulse-radius);
+}
+
+[data-ui~="settings.content"] {
+  background: var(--pulse-panel-aero);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: var(--pulse-radius);
+
+  animation:
+    pulse-popup
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+
+/* ============================================================
+ * Other V2 surfaces
+ * ============================================================ */
+
+[data-ui~="agent.view"],
+[data-ui~="files.view"],
+[data-ui~="knowledge.view"],
+[data-ui~="notes.view"],
+[data-ui~="translate.view"],
+[data-ui~="paintings.view"],
+[data-ui~="code.view"],
+[data-ui~="mini-apps.view"] {
+  background: var(--pulse-panel-aero);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(180%);
+
+  border-radius: var(--pulse-radius);
+
+  animation:
+    pulse-popup
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+
+/* Navigation panes */
+
+[data-ui~="files.navigation"],
+[data-ui~="knowledge.navigation"],
+[data-ui~="notes.navigation"],
+[data-ui~="code.navigation"] {
+  background: var(--pulse-panel-aero);
+
+  border-radius: var(--pulse-radius);
+}
+
+
+/* Content panes */
+
+[data-ui~="files.content"],
+[data-ui~="knowledge.content"],
+[data-ui~="code.content"] {
+  background: transparent;
+
+  border-radius: var(--pulse-radius);
+}
+
+
+/* ============================================================
+ * Search
+ * ============================================================ */
+
+[data-ui~="app.search"] {
+  background: var(--pulse-input-bg);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: var(--pulse-radius);
+}
+
+
+/* ============================================================
+ * Generic stable parts
+ * ============================================================ */
+
+[data-slot="dialog-content"],
+[data-ui~="part:dialog-content"] {
+  border-radius: var(--pulse-radius);
+}
+
+
+/* ============================================================
+ * Ant Design compatibility
+ *
+ * Cherry V2 is moving toward its semantic component contract.
+ * Keep Ant selectors only for components still backed by AntD.
+ * ============================================================ */
+
+.ant-btn,
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-dropdown-menu,
+.ant-dropdown-menu-item,
+.ant-tooltip-inner,
+.ant-modal-content,
+.ant-popover-inner {
+  border-radius: var(--pulse-radius);
+}
+
+.ant-btn:hover,
+.ant-dropdown-menu-item:hover,
+.ant-select-item:hover {
+  border-radius: var(--pulse-radius-hover);
+
+  transition:
+    border-radius
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+.ant-btn:active,
+.ant-dropdown-menu-item:active,
+.ant-select-item:active,
+.ant-segmented-item:active {
+  border-radius: var(--pulse-radius-active);
+
+  animation:
+    pulse-click
+    var(--pulse-long-timer)
+    var(--pulse-animation);
+}
+
+
+/* Switch remains pill-shaped */
+
+.ant-switch {
+  border-radius: 9999px;
+}
+
+
+/* ============================================================
+ * Generic interactive V2 elements
+ * ============================================================ */
+
+button,
+[role="button"] {
+  transition:
+    border-radius
+    var(--pulse-short-timer)
+    var(--pulse-animation);
+}
+
+button:not(.ant-switch):hover,
+[role="button"]:not(.ant-switch):hover {
+  border-radius: var(--pulse-radius-hover);
+}
+
+button:not(.ant-switch):active,
+[role="button"]:not(.ant-switch):active {
+  border-radius: var(--pulse-radius-active);
+
+  animation:
+    pulse-click
+    var(--pulse-long-timer)
+    var(--pulse-animation);
+}
+
+
+/* ============================================================
+ * Modal / Popover Aero
+ * ============================================================ */
+
+[data-slot="dialog-content"],
+.ant-modal-content,
+.ant-popover-inner,
+.ant-dropdown-menu {
+  background: var(--pulse-panel-aero-strong);
+
+  backdrop-filter:
+    blur(20px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(20px)
+    saturate(180%);
+}
+
+
+/* ============================================================
+ * Accessibility: reduced motion
+ * ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+
+    transition-duration: 0.001ms;
+  }
+}

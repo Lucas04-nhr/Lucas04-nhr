@@ -4,7 +4,7 @@
 body {
   background-color: var(--background-light-aero) !important;
   backdrop-filter: blur(16px) saturate(180%);
-  background-image: url(https://cdn.jsdelivr.net/gh/Lucas04-nhr/Lucas04-nhr@main/static/background.jpg);
+  background-image: url(https://static.lucas04.top/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.9;
@@ -25,7 +25,7 @@ body {
 
 /*  Font */
 * {
-  font-family: Product Sans, ShangguSansSTVF-Medium, FanWunHak-M, MiSans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, "Roboto Flex", "Noto Sans", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+  font-family: Google Sans Flex, Maple Mono NF CN Medium, Noto Sans SC, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
   font-feature-settings: 'calt', 'cv07', 'cv40', 'ss03', 'ss07', 'ss08', 'ss09', 'ss10', 'ss11';
 }
 

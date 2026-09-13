@@ -16,10 +16,7 @@
 
 ## Hi there!
 
-I'm a passionate undergraduate student at Huazhong University of Science and Technology (HUST), majoring in Bioinformatics at the College of Life Science and Technology.
-
-> [!NOTE]
-> I'm currently admitted to MSc. of Bioinformatics at Københavns Universitet (KU). Since Sept. 2026, I will be a graduate student at KU, and I will continue to pursue my passion for bioinformatics and contribute to the field with my knowledge and skills.
+I'm a passionate graduate student at Huazhong University of Copenhagen (Københavns Universitet, KU), majoring in Bioinformatics.
 
 <p align="center"><a href="https://blog.lucas04.top/about" target="_blank">
     <picture>

@@ -16,7 +16,7 @@
 
 ## Hi there!
 
-I'm a passionate graduate student at Huazhong University of Copenhagen (Københavns Universitet, KU), majoring in Bioinformatics.
+I'm a passionate graduate student at University of Copenhagen (Københavns Universitet, KU), majoring in Bioinformatics.
 
 <p align="center"><a href="https://blog.lucas04.top/about" target="_blank">
     <picture>

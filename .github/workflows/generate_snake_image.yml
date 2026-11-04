@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: '0 16 * * *' # 16:00 Copenhagen time
+    - cron: '0 4 * * *' # 4:00 Copenhagen time
       timezone: 'Europe/Copenhagen'
 
 permissions:

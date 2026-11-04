@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Generate Snake Image
+        id: generate
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -28,11 +29,78 @@ jobs:
             static/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
       - name: Commit and Push Snake Image
+        id: commit
         run: |
             git config --global user.name "github-actions[bot]"
             git config --global user.email "github-actions[bot]@users.noreply.github.com"
             git add static/github-snake.svg
             git add static/github-snake-dark.svg
             git add static/ocean.gif
-            git commit -m "chore: Update snake image $(date +'%Y%m%d')" || true
-            git push || true
+            if git diff --cached --quiet; then
+              echo "result=unchanged" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git commit -m "chore: Update snake image $(date +'%Y%m%d')"
+            # A failed push stays non-fatal, and the push below reports it
+            if git push; then
+              echo "result=updated" >> "$GITHUB_OUTPUT"
+            else
+              echo "result=push_failed" >> "$GITHUB_OUTPUT"
+              echo "::warning title=Snake image push failed::The new images were not pushed."
+            fi
+
+      - name: Send ServerChan push
+        if: ${{ !cancelled() }}
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          JOB_STATUS: ${{ job.status }}
+          GENERATE_OUTCOME: ${{ steps.generate.outcome }}
+          COMMIT_RESULT: ${{ steps.commit.outputs.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$SERVERCHAN_SENDKEY" ]; then
+            echo "::warning title=Snake push skipped::Set the SERVERCHAN_SENDKEY secret to enable pushes."
+            exit 0
+          fi
+          if [[ ! "$SERVERCHAN_SENDKEY" =~ ^sctp([0-9]+)t ]]; then
+            echo "::error title=Snake push failed::SERVERCHAN_SENDKEY is not a ServerChan3 key (sctp...)."
+            exit 1
+          fi
+          uid="${BASH_REMATCH[1]}"
+          echo "::add-mask::$uid"
+
+          repo="${GITHUB_REPOSITORY#*/}"
+
+          if [ "$GENERATE_OUTCOME" = "failure" ]; then
+            title="Snake image update failed"
+            short="$repo: Failed at Generate Snake Image"
+          elif [ "$JOB_STATUS" != "success" ]; then
+            title="Snake image update failed"
+            short="$repo: The update workflow failed"
+          elif [ "$COMMIT_RESULT" = "push_failed" ]; then
+            title="Snake image update failed"
+            short="$repo: New images could not be pushed"
+          elif [ "$COMMIT_RESULT" = "updated" ]; then
+            title="Snake image updated"
+            short="$repo: New images were pushed"
+          else
+            title="Snake image is unchanged"
+            short="$repo: No image changes to push"
+          fi
+
+          desp="- Repository: \`$repo\`
+          - Trigger: \`$GITHUB_EVENT_NAME\`
+          - Generate: \`$GENERATE_OUTCOME\`
+          - Commit: \`${COMMIT_RESULT:-skipped}\`
+
+          Check the [workflow run]($RUN_URL) for detailed logs."
+
+          response=$(curl -sS --fail-with-body --retry 3 \
+            --data-urlencode "title=$title" \
+            --data-urlencode "desp=$desp" \
+            --data-urlencode "short=$short" \
+            --data-urlencode "tags=GitHub" \
+            "https://$uid.push.ft07.com/send/$SERVERCHAN_SENDKEY.send")
+          # The response may carry a read key and the logs are public, so print only the status.
+          jq -r '"code=\(.code // "none") message=\(.message // "")"' <<< "$response"
+          jq -e '(.code // 0) == 0' <<< "$response" > /dev/null

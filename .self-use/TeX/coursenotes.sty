@@ -1,0 +1,326 @@
+% coursenotes.sty --- shared layout for course study material. Compile with XeLaTeX.
+% Updated: Nov. 14, 2026
+%
+%   \documentclass[11pt,a4paper,twoside]{article}
+%   \usepackage{coursenotes}           printable notes (default): 25 mm margins,
+%                                      bilingual EN--ZH macros, topics of any length
+%   \usepackage[sheets]{coursenotes}   exam sheets: 18 mm margins, every topic fills
+%                                      exactly one duplex sheet (overflow is an error)
+%   \usepackage[zh]{coursenotes}       Chinese-only document: fixed names become
+%                                      目录 / 图 / 表 (combine with sheets if needed)
+%   \courseheader{The header}          left-hand running header
+%
+% Languages. Every content macro below takes an English and a Chinese argument and
+% works in three ways:
+%   bilingual      fill both    English in the main style, Chinese under it in
+%                               \zhstyle (smaller, grey)
+%   English only   leave the Chinese argument empty  {}   -> nothing Chinese is printed
+%   Chinese only   leave the English argument empty  {}   -> the Chinese is printed in
+%                               the main style, as the primary text
+% "Empty" means really empty: {} or { }. Plain \section, \caption, tabular etc. are
+% language-neutral and can be used in any of the three kinds of document.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{coursenotes}[Shared layout for KU course notes and exam sheets]
+
+\newif\ifcn@sheets \cn@sheetsfalse
+\newif\ifcn@zh \cn@zhfalse
+\DeclareOption{notes}{\cn@sheetsfalse}
+\DeclareOption{sheets}{\cn@sheetstrue}
+\DeclareOption{zh}{\cn@zhtrue}
+\ProcessOptions\relax
+
+% ---- Internal helpers ----
+% \cn@ifblank{<text>}{<if empty>}{<if not empty>}: true for {} and { }
+\newcommand{\cn@ifblank}[1]{\if\relax\detokenize{#1}\relax
+  \expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}
+% \cn@splittitle{<title>}: split "3. Score statistics" into \cn@num (3) and
+% \cn@title (Score statistics). The part before the first ". " counts as a number
+% only if it is all digits, so "Gu et al. revisited" stays one unnumbered title.
+\def\cn@splittitle#1{\cn@splitA#1. \@nil}
+\def\cn@splitA#1. #2\@nil{%
+  \cn@ifblank{#2}%
+    {\def\cn@num{}\def\cn@title{#1}}% no ". " at all: unnumbered
+    {\if\relax\detokenize\expandafter{\romannumeral-0#1}\relax
+       \def\cn@num{#1}\cn@splitB#2\@nil
+     \else
+       \def\cn@num{}\cn@splitB#1. #2\@nil
+     \fi}}
+\def\cn@splitB#1. \@nil{\def\cn@title{#1}}% drop the ". " added by \cn@splittitle
+
+% ---- Page layout ----
+\ifcn@sheets
+  \RequirePackage[margin=18mm,headheight=14pt,headsep=7mm,footskip=9mm]{geometry}
+\else
+  % wider margins for printing and annotating
+  \RequirePackage[margin=25mm,headheight=14pt,headsep=8mm,footskip=11mm]{geometry}
+\fi
+
+% ---- Fonts ----
+% Latin text and maths: TeX Gyre Pagella; CJK: Noto Serif CJK SC (xeCJK). Chinese
+% can therefore appear anywhere, in any kind of document.
+\RequirePackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+\RequirePackage{xeCJK}
+\setCJKmainfont[ItalicFont={Noto Serif CJK SC}]{Noto Serif CJK SC}
+\setCJKsansfont{Noto Serif CJK SC}
+\setCJKmonofont{Noto Serif CJK SC}
+% Code font (\texttt, verbatim, listings): Maple Mono NF CN, Latin and CJK, with
+% its contextual alternates. Used if it is installed on the system, or if its four
+% .ttf files are uploaded next to main.tex:
+%   MapleMono-NF-CN-Regular.ttf  MapleMono-NF-CN-Bold.ttf
+%   MapleMono-NF-CN-Italic.ttf   MapleMono-NF-CN-BoldItalic.ttf
+% (from the MapleMono-NF-CN release zip on github.com/subframe7536/maple-font).
+% Otherwise the default monospace font is kept and a warning is given.
+\IfFontExistsTF{Maple Mono NF CN}%
+  {\setmonofont{Maple Mono NF CN}[Contextuals=Alternate]%
+   \setCJKmonofont{Maple Mono NF CN}}%
+  {\IfFontExistsTF{MapleMono-NF-CN-Regular.ttf}%
+    {\setmonofont{MapleMono-NF-CN}[Extension=.ttf,UprightFont=*-Regular,
+       BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic,
+       Contextuals=Alternate]%
+     \setCJKmonofont{MapleMono-NF-CN}[Extension=.ttf,UprightFont=*-Regular,
+       BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]}%
+    {\PackageWarningNoLine{coursenotes}{Maple Mono NF CN not found;
+       code keeps the default monospace font}}}
+
+% ---- Other packages ----
+\RequirePackage{booktabs,array,enumitem,titlesec,fancyhdr,xcolor,tikz}
+
+% ---- Figures and tables (adapted from hust_gp.sty); loaded before hyperref ----
+% All floats: small captions, bold label, a \quad after it, centred; table captions
+% go above the table. The names are "Figure"/"Table", or 图/表 with the [zh] option.
+%
+%   \begin{figure}[htbp]
+%     \centering
+%     \fig{fig/pipeline}                    % default width 0.8\linewidth
+%     \bicaption{Modelling pipeline}{建模流程}\label{fig:pipeline}
+%   \end{figure}
+%
+% Sub-figures (subcaption): \begin{subfigure}{0.45\linewidth} ... \caption{..}
+% \end{subfigure}; the label reads "(a)", \ref gives "1(a)".
+\RequirePackage{graphicx,caption,subcaption}
+\DeclareCaptionLabelSeparator{quad}{\quad}
+\captionsetup{font=small,labelfont=bf,labelsep=quad,justification=centering,skip=6pt}
+\captionsetup[table]{position=top}% table captions sit above the table
+\captionsetup[sub]{font=small,labelformat=simple,labelsep=space}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\thesubtable}{(\alph{subtable})}
+% \fig[<width>]{<file>}: \includegraphics with width (default 0.8\linewidth) and a
+% height cap of 0.7\textheight, aspect ratio kept, so a figure never overflows.
+\newcommand{\fig}[2][0.8\linewidth]{%
+  \includegraphics[width=#1,height=0.7\textheight,keepaspectratio]{#2}}
+% \bicaption{<English>}{<中文>}: use in place of \caption.
+%   both filled    English caption, Chinese line under it in \zhstyle
+%   {English}{}    plain English caption
+%   {}{中文}       plain Chinese caption
+% The list of figures/tables takes the English text (or the Chinese if alone).
+\newcommand{\bicaption}[2]{%
+  \cn@ifblank{#1}{\caption{#2}}{%
+    \cn@ifblank{#2}{\caption{#1}}{\caption[#1]{#1\\{\zhstyle #2}}}}}
+
+% ---- Citations and references (natbib + BibTeX) ----
+% Keep the references in a .bib file and end the document with
+%   \bibliography{references}            % references.bib, no \bibliographystyle
+% \cite{key} / \cite{a,b,c} / \cite[p.~5]{key}   superscript, in brackets: ^[1], ^[1–3]
+%   Any space before it is removed, so "Gu et al.~\cite{gu2026}" sits tight.
+% \citep{key}   the same number on the line: [1]   ("as shown in \citep{key}")
+% \citet{key}   author and number: Gu et al. [1]
+% Numbers follow the order of first citation (unsrtnat); multiple numbers are sorted
+% and compressed. The list is set small with [1] labels. Its heading is
+% "References", "References 参考文献" in a bilingual document (same rule as the
+% table of contents), or 参考文献 with the [zh] option. To use another BibTeX
+% style: \renewcommand{\cnbibstyle}{plainnat} in the preamble.
+\RequirePackage[numbers,square,sort&compress]{natbib}
+\setlength{\bibsep}{2pt}
+\def\bibfont{\small}
+\renewcommand{\bibnumfmt}[1]{[#1]}
+\newcommand{\cnbibstyle}{unsrtnat}
+\AtBeginDocument{\bibliographystyle{\cnbibstyle}}
+\newcommand{\cn@supcite}[2][]{\cn@ifblank{#1}%
+  {\textsuperscript{\citep{#2}}}{\textsuperscript{\citep[#1]{#2}}}}
+\DeclareRobustCommand{\cite}{\unskip\cn@supcite}
+\renewcommand{\refname}{References\@ifundefined{cn@tocbi}{}{\quad 参考文献}}
+
+\RequirePackage[hidelinks]{hyperref}
+% DOI field of the .bib entries: a link reading "doi:..."
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
+
+% ---- Paragraphs and lists ----
+% No first-line indent; paragraphs separated by \parskip (4pt sheets, 5pt notes);
+% compact lists.
+\setlength{\emergencystretch}{2em}
+\setlength{\parindent}{0pt}
+\newlength{\cn@parskip}
+\ifcn@sheets\setlength{\cn@parskip}{4pt}\else\setlength{\cn@parskip}{5pt}\fi
+\setlength{\parskip}{\cn@parskip}
+\setlist{nosep,leftmargin=1.4em,topsep=3pt}
+
+% ---- Chinese text style: smaller than the English, with wider line spacing ----
+% \zhstyle is the style of the secondary (Chinese) line in bilingual macros; it can
+% also be used directly: {\zhstyle 中文说明}. Chinese-only text does not use it.
+% Change these definitions to adjust all secondary Chinese text at once.
+\definecolor{zhcol}{gray}{0.30}
+\newcommand{\zhfontsize}{9.5pt}
+\newcommand{\zhbaselineskip}{16pt}
+\newcommand{\zhstyle}{\color{zhcol}\fontsize{\zhfontsize}{\zhbaselineskip}\selectfont}
+
+% ---- Running header and footer ----
+% \courseheader{<text>}: left header, any language. The right header shows the
+% current topic's running title (first argument of \topic). Page number centred.
+% Sections are unnumbered (secnumdepth 0); \topic prints its own number.
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[R]{\small\nouppercase{\leftmark}}\fancyfoot[C]{\thepage}
+\newcommand{\courseheader}[1]{\fancyhead[L]{\small #1}}
+\let\notesheader\courseheader % old name, kept for compatibility
+\setcounter{secnumdepth}{0}
+
+\ifcn@sheets
+  % ---- Exam sheets: one duplex sheet per topic ----
+  % Write each topic as
+  %   \topic{<running title>}{<full title>}  ...front...  \backside  ...back...
+  %   \finishTopic
+  % using \subsection / \subsubsection for headings (any language). The running
+  % title goes to the right header; <full title> is not typeset. \finishTopic stops
+  % with an error if the topic ran past two pages.
+  \setcounter{tocdepth}{3}
+  \hypersetup{bookmarksdepth=3}
+  \titleformat{\subsection}{\bfseries\Large}{}{0pt}{}
+  \titlespacing*{\subsection}{0pt}{0pt}{4pt}
+  \titleformat{\subsubsection}{\bfseries\normalsize}{}{0pt}{}
+  \titlespacing*{\subsubsection}{0pt}{8pt}{3pt}
+  \setlength{\abovedisplayskip}{6pt}\setlength{\belowdisplayskip}{6pt}
+  \newcounter{topicstart}
+  % \topic{short running title}{full title}
+  \newcommand{\topic}[2]{\clearpage\setcounter{topicstart}{\value{page}}\markboth{#1}{}}
+  % \backside: start the reverse side of the sheet
+  \newcommand{\backside}{\newpage}
+  % \finishTopic: error if the topic ran past two pages; pad to an odd page
+  \newcommand{\finishTopic}{\par\ifnum\value{page}>\numexpr\value{topicstart}+1\relax
+    \PackageError{coursenotes}{Topic exceeds two pages}{Shorten the topic before printing.}\fi
+    \clearpage\ifodd\value{page}\else\thispagestyle{empty}\null\clearpage\fi}
+\else
+  % ---- Notes: topics of any length ----
+  \raggedbottom % unbreakable blocks below leave space at the page foot instead of stretching
+  \setcounter{tocdepth}{1}
+  \titleformat{\section}{\bfseries\Large}{}{0pt}{}
+  \titleformat{\subsection}{\bfseries\large}{}{0pt}{}
+  \titlespacing*{\subsection}{0pt}{12pt}{4pt}
+  \renewcommand{\sectionmark}[1]{}% running title is set by \topic
+  % \topic{<running title>}{<N. English title>}{<中文标题>}: new page, new section,
+  % question counter reset. The number is optional: "3. Score statistics" is split
+  % into number and title for the table of contents; "Score statistics" has none.
+  %   \topic{Scores}{3. Score statistics}{打分统计}   bilingual: English heading,
+  %                                                  Chinese line under it
+  %   \topic{Scores}{3. Score statistics}{}          English only
+  %   \topic{打分}{}{3. 打分统计}                     Chinese only: the number goes
+  %                                                  with the Chinese title
+  % Write ".\ " for a full stop followed by a space inside a numbered title.
+  \newcommand{\topic}[3]{\clearpage\setcounter{qn}{0}%
+    \cn@ifblank{#2}%
+      {\cn@splittitle{#3}%
+       \section[\texorpdfstring{\protect\cn@tocpair{\cn@num}{}{\cn@title}}{#3}]{#3}%
+       \markboth{#1}{}}%
+      {\cn@splittitle{#2}%
+       \section[\texorpdfstring{\protect\cn@tocpair{\cn@num}{#3}{\cn@title}}{#2 #3}]{#2}%
+       \markboth{#1}{}%
+       \cn@ifblank{#3}{}{{\color{zhcol}\large #3\par}}}}
+
+  % ---- Table of contents ----
+  % \tableofcontents as usual. Each entry is laid out by its content:
+  %   bilingual \topic        English title over Chinese title, number and page
+  %                           number centred between the two lines
+  %   one-language \topic,    one line: number (only if there is one), title,
+  %   plain \section or       \cdot leaders, page number
+  %   \addcontentsline
+  % The heading is "Contents 目录" when at least one entry is bilingual, otherwise
+  % "Contents" (目录 with the [zh] option). It is decided from the previous run,
+  % like the TOC itself, so it can take one extra compilation to change.
+  % The flag \cn@tocbi is written to the .aux while the TOC is read.
+  \renewcommand{\contentsname}{Contents\@ifundefined{cn@tocbi}{}{\quad 目录}}
+  \hypersetup{linktoc=page}
+  \newlength{\cn@tocnumw}\setlength{\cn@tocnumw}{2.2em}% number column
+  \newlength{\cn@tocpagew}\setlength{\cn@tocpagew}{2.2em}% page-number column
+  \newcommand{\cn@tocdots}{\leaders\hbox to 0.7em{\hss$\cdot$\hss}\hfill}
+  \newcommand{\cn@tocpair}[3]{\gdef\cn@tocnum{#1}\gdef\cn@toczh{#2}\gdef\cn@tocen{#3}}% global: survives the link group
+  % plain \numberline{..}Title entries: grab the number, drop it from the title
+  \newcommand{\cn@tocgrabnum}[1]{\gdef\cn@tocnum{#1}}
+  \renewcommand*{\l@section}[2]{%
+    % reset, with the raw entry text as the English-title fallback
+    \global\let\cn@tocnum\@empty
+    \global\let\cn@toczh\@empty
+    \gdef\cn@tocen{{\let\numberline\@gobble#1}}%
+    % run the entry in a throw-away box: \cn@tocpair or \numberline fill the macros
+    \setbox\z@\hbox{\let\numberline\cn@tocgrabnum#1}%
+    \ifx\cn@toczh\@empty \cn@tocrowsingle{#2}\else
+      \if@filesw\immediate\write\@auxout{\string\gdef\string\cn@tocbi{}}\fi
+      \cn@tocrow{#2}\fi}
+  % number column: only reserved when the entry has a number (no indent otherwise)
+  \newcommand{\cn@tocnumbox}{\ifx\cn@tocnum\@empty\else
+    \hbox to\cn@tocnumw{\bfseries\cn@tocnum\hfil}\fi}
+  % gap between the English (top) and the Chinese (bottom) line, baseline to baseline
+  \newlength{\cn@toclinesep}\setlength{\cn@toclinesep}{16pt}
+  % bilingual row: \cdot leaders on the axis between the two lines, up to the page number
+  \newcommand{\cn@tocrow}[1]{\par\addvspace{8pt}\noindent
+    \hbox to\linewidth{%
+      $\vcenter{\cn@tocnumbox}%
+       \vcenter{\baselineskip=\cn@toclinesep\lineskiplimit=0pt
+         \hbox{\cn@tocen}\hbox{\small\cn@toczh}}$%
+      \ \cn@tocdots\ %
+      $\vcenter{\hbox to\cn@tocpagew{\hfil\bfseries #1}}$}\par}
+  % one-language row: same columns, one line
+  \newcommand{\cn@tocrowsingle}[1]{\par\addvspace{8pt}\noindent
+    \hbox to\linewidth{%
+      \cn@tocnumbox
+      \cn@tocen\ \cn@tocdots\ %
+      \hbox to\cn@tocpagew{\hfil\bfseries #1}}\par}
+\fi
+
+% ---- Chinese-only documents: the [zh] option ----
+% Fixed names in Chinese (contents, figure, table, references). \ref still gives only the number, so write 图~\ref{..}.
+\ifcn@zh
+  \renewcommand{\contentsname}{目录}
+  \renewcommand{\figurename}{图}
+  \renewcommand{\tablename}{表}
+  \renewcommand{\refname}{参考文献}
+\fi
+
+% ---- Bilingual content macros (both modes) ----
+% Each block below is kept on one page. Leave an argument empty for one language.
+\newcounter{qn}
+% \cn@keep{...}: typeset as one block that is never split across pages
+\newcommand{\cn@keep}[1]{\par\noindent\begin{minipage}{\linewidth}%
+  \setlength{\parskip}{\cn@parskip}#1\end{minipage}\par}
+% \bi{<English paragraph>}{<中文段落>}
+%   both filled    English, then the Chinese in \zhstyle
+%   {English}{}    English only
+%   {}{中文}       Chinese only, in the main style
+\newcommand{\bi}[2]{\cn@keep{%
+  \cn@ifblank{#1}{#2\par}{#1\par\cn@ifblank{#2}{}{{\zhstyle #2\par}}}}\vspace{5pt}}
+% \qa{<question EN>}{<问题>}{<answer EN>}{<回答>}: numbered question with its answer;
+% the counter restarts at each \topic (notes mode).
+%   all four filled            Q1. question / 问：… (\zhstyle) / A. answer / 答：…
+%   {Q}{}{A}{}                 English only: Q1. … / A. …
+%   {}{问}{}{答}               Chinese only, main style: 问1：… / 答：…
+% A question in one language with the answer in the other also works.
+\newcommand{\qa}[4]{\stepcounter{qn}\par\vspace{6pt}%
+  \cn@keep{%
+    \cn@ifblank{#1}%
+      {\textbf{问\theqn：#2}\par}%
+      {\textbf{Q\theqn. #1}\par\cn@ifblank{#2}{}{{\zhstyle\textbf{问：}#2\par}}}%
+    \cn@ifblank{#3}%
+      {\cn@ifblank{#4}{}{\textbf{答：}#4\par}}%
+      {\textbf{A.} #3\par\cn@ifblank{#4}{}{{\zhstyle\textbf{答：}#4\par}}}}}
+% terms environment: a two-column glossary, rows of the form
+%   <term> & <explanation>\\
+% The optional arguments are the column headings, by default "English" and
+% "中文与要点"; for one language write e.g. \begin{terms}[Term][Meaning] or
+% \begin{terms}[术语][释义]. The right column is set small and grey.
+% (A tabular is never split, so the whole glossary stays on one page.)
+\NewDocumentEnvironment{terms}{O{English} O{中文与要点}}%
+  {\par\begin{tabular}{@{}p{0.34\textwidth}>{\small\leavevmode\color{zhcol}}p{0.62\textwidth}@{}}\toprule
+   #1 & \normalcolor\normalsize #2\\\midrule}%
+  {\bottomrule\end{tabular}\par}
+\endinput

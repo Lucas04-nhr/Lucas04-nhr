@@ -89,31 +89,65 @@
 % ---- Other packages ----
 \RequirePackage{booktabs,array,enumitem,titlesec,fancyhdr,xcolor,tikz}
 
+% ---- Colour palette ----
+% Lucas's Thoughts design system (docs/.vuepress/theme/styles/custom_color.css):
+% low-saturation macaron backgrounds; every text colour keeps >= 4.5:1 contrast
+% on the backgrounds it is used on. Use these names in documents instead of
+% defining new colours, so all material shares one look.
+\definecolor{cnbrand}{HTML}{306B88}    % brand blue: links, accents, rules (--vp-c-brand-1)
+\definecolor{cnbrandd}{HTML}{1C587D}   % darker brand blue (--vp-c-brand-2)
+\definecolor{cntext}{HTML}{3C3C43}     % main text (--vp-c-text-1)
+\definecolor{cnmuted}{HTML}{6B6B73}    % secondary text, captions (--vp-c-text-3)
+\definecolor{cnborder}{HTML}{C3C9D1}   % thin rules and borders
+\definecolor{cncodebg}{HTML}{F6F8FA}   % code background (--vp-code-block-bg)
+% container backgrounds (one shade lighter than the markers)
+\definecolor{cninfobg}{HTML}{F1F2F5}      % mist grey      (--container-info)
+\definecolor{cnnotebg}{HTML}{E7F1F5}      % powder blue    (--container-note)
+\definecolor{cntipbg}{HTML}{E5F2EF}       % mint           (--container-tip)
+\definecolor{cnsuccessbg}{HTML}{F2F8EF}   % pistachio      (--container-success)
+\definecolor{cnimportantbg}{HTML}{EFEBF8} % lavender       (--container-important)
+\definecolor{cnwarningbg}{HTML}{FBF1E1}   % apricot cream  (--container-warning)
+\definecolor{cndangerbg}{HTML}{F9E6E8}    % rose           (--container-danger)
+% markers / title bars (slightly stronger macaron tones)
+\definecolor{cnmark}{HTML}{CDE6E4}          % mint teal  (--mark-default)
+\definecolor{cnnotemark}{HTML}{F2E6B3}      % cream yellow (--mark-note)
+\definecolor{cninfomark}{HTML}{DFE3EA}      % mist blue  (--mark-info)
+\definecolor{cntipmark}{HTML}{D3E8C9}       % pistachio  (--mark-tip)
+\definecolor{cnwarningmark}{HTML}{F5D7B5}   % apricot    (--mark-warning)
+\definecolor{cndangermark}{HTML}{F2CDD0}    % rose       (--mark-danger)
+\definecolor{cnimportantmark}{HTML}{DDD5F0} % lavender   (--mark-important)
+
 % ---- Code listings ----
-% Python highlighting is the default for every listing. Two environments share
-% one tcolorbox style, which draws one background per block (listings' own
-% per-line backgroundcolor leaves hairline gaps in PDF viewers, and \parskip
-% would add space between lines).
-%   \begin{pycode} ... \end{pycode}     Python source, grey background
-%   \begin{outcode} ... \end{outcode}   program output, grey rule on the left
-% Both break across pages. Change the colours below to restyle all code at once.
+% Two environments, one shared tcolorbox style ("codebox") that draws one
+% background per block: listings' own per-line backgroundcolor leaves hairline
+% gaps in PDF viewers, and \parskip would add space between lines.
+%   \begin{codeblock} ... \end{codeblock}        source code, Python by default
+%   \begin{codeblock}[R] ... \end{codeblock}     any language listings knows:
+%                                                 R, C, C++, Java, bash, SQL ...
+%   \begin{codeblock}[] ... \end{codeblock}      plain text, no highlighting
+%   \begin{outputblock} ... \end{outputblock}    program output, never highlighted
+% Both break across pages. Inline code: \texttt{...}. Colours come from the
+% palette above; change them here to restyle all code at once.
 \RequirePackage{listings}
 \RequirePackage[most]{tcolorbox}
-\definecolor{cncodebg}{gray}{0.96}
-\definecolor{cncodekw}{RGB}{46,108,190}
-\definecolor{cncodecomment}{gray}{0.40}
-\definecolor{cncodestring}{RGB}{153,92,0}
-\lstset{language=Python,basicstyle=\ttfamily\small,columns=fullflexible,
+\colorlet{cncodekw}{cnbrand}            % keywords
+\colorlet{cncodecomment}{cnmuted}       % comments
+\definecolor{cncodestring}{HTML}{8A5A2B} % strings: deep apricot (>= 4.5:1 on cncodebg)
+% language-neutral defaults; the language is chosen per block
+\lstset{basicstyle=\ttfamily\small\color{cntext},columns=fullflexible,
   keepspaces=true,breaklines=true,showstringspaces=false,upquote=true,
   keywordstyle=\color{cncodekw}\bfseries,
   commentstyle=\color{cncodecomment}\itshape,
   stringstyle=\color{cncodestring},aboveskip=0pt,belowskip=0pt}
-\tcbset{codebox/.style={listing only,enhanced,breakable,boxrule=0pt,arc=0pt,
-  outer arc=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
+% listing options is always set below, which also drops tcolorbox's default
+% style=tcblatex (that would switch every block to LaTeX highlighting)
+\tcbset{codebox/.style={listing only,enhanced,breakable,boxrule=0pt,arc=2pt,
+  outer arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
   before skip=6pt,after skip=6pt}}
-\newtcblisting{pycode}{codebox,colback=cncodebg,colframe=cncodebg}
-\newtcblisting{outcode}{codebox,colback=white,colframe=white,
-  borderline west={1.5pt}{0pt}{cncodecomment!50},listing options={language={}}}
+\newtcblisting{codeblock}[1][Python]{codebox,colback=cncodebg,colframe=cncodebg,
+  listing options={language={#1}}}
+\newtcblisting{outputblock}{codebox,colback=white,colframe=white,arc=0pt,outer arc=0pt,
+  borderline west={1.5pt}{0pt}{cnborder},listing options={language={}}}
 
 % ---- Figures and tables (adapted from hust_gp.sty); loaded before hyperref ----
 % All floats: small captions, bold label, a \quad after it, centred; table captions

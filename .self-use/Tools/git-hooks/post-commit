@@ -1,0 +1,13 @@
+#!/bin/sh
+# Keep the generated-images commit as the only one, at the tip of main.
+# Enabled with: git config core.hooksPath .self-use/Tools/git-hooks
+[ -n "$SQUASH_GENERATED_IMAGES_RUNNING" ] && exit 0
+[ "$(git symbolic-ref --quiet --short HEAD)" = "main" ] || exit 0
+gitdir=$(git rev-parse --git-dir)
+for state in rebase-merge rebase-apply MERGE_HEAD CHERRY_PICK_HEAD REVERT_HEAD sequencer; do
+  [ -e "$gitdir/$state" ] && exit 0
+done
+top=$(git rev-parse --show-toplevel)
+python3 -I "$top/.self-use/Tools/squash_generated_images.py" ||
+  echo "[squash-images] rewrite failed; main was left unchanged" >&2
+exit 0

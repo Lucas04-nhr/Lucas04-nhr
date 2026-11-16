@@ -6,14 +6,27 @@ on:
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: {branches: ["master", "main"]}
+# Shared with the snake workflow: both amend the same image commit
+concurrency:
+  group: generated-images
+  cancel-in-progress: false
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
       - uses: lowlighter/metrics@latest
         with:
+          # Render only; the commit step below amends the shared image commit
+          output_action: none
+          filename: github-metrics.svg
+
           # Your GitHub token
           # The following scopes are required:
           #  - public_access (default scope)
@@ -62,3 +75,9 @@ jobs:
           plugin_people_limit: 30
           plugin_people_size: 28
           plugin_people_types: followers, following
+
+      - name: Commit and Push Metrics Image
+        run: |
+          # output_action: none leaves the render in /metrics_renders
+          cp /metrics_renders/github-metrics.svg github-metrics.svg
+          bash .github/scripts/commit-generated-images.sh github-metrics.svg

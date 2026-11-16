@@ -11,13 +11,20 @@ on:
 
 permissions:
   contents: write
-  
+
+# Shared with the Metrics workflow: both amend the same image commit
+concurrency:
+  group: generated-images
+  cancel-in-progress: false
+
 jobs:
   generate-snake:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
 
       - name: Generate Snake Image
         id: generate
@@ -32,23 +39,10 @@ jobs:
       - name: Commit and Push Snake Image
         id: commit
         run: |
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git add static/github-snake.svg
-            git add static/github-snake-dark.svg
-            git add static/ocean.gif
-            if git diff --cached --quiet; then
-              echo "result=unchanged" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-            git commit -m "chore: Update snake image $(date +'%Y%m%d')"
-            # A failed push stays non-fatal, and the push below reports it
-            if git push; then
-              echo "result=updated" >> "$GITHUB_OUTPUT"
-            else
-              echo "result=push_failed" >> "$GITHUB_OUTPUT"
-              echo "::warning title=Snake image push failed::The new images were not pushed."
-            fi
+            bash .github/scripts/commit-generated-images.sh \
+              static/github-snake.svg \
+              static/github-snake-dark.svg \
+              static/ocean.gif
 
       - name: Send ServerChan push
         if: ${{ !cancelled() }}

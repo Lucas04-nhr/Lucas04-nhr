@@ -89,6 +89,32 @@
 % ---- Other packages ----
 \RequirePackage{booktabs,array,enumitem,titlesec,fancyhdr,xcolor,tikz}
 
+% ---- Code listings ----
+% Python highlighting is the default for every listing. Two environments share
+% one tcolorbox style, which draws one background per block (listings' own
+% per-line backgroundcolor leaves hairline gaps in PDF viewers, and \parskip
+% would add space between lines).
+%   \begin{pycode} ... \end{pycode}     Python source, grey background
+%   \begin{outcode} ... \end{outcode}   program output, grey rule on the left
+% Both break across pages. Change the colours below to restyle all code at once.
+\RequirePackage{listings}
+\RequirePackage[most]{tcolorbox}
+\definecolor{cncodebg}{gray}{0.96}
+\definecolor{cncodekw}{RGB}{46,108,190}
+\definecolor{cncodecomment}{gray}{0.40}
+\definecolor{cncodestring}{RGB}{153,92,0}
+\lstset{language=Python,basicstyle=\ttfamily\small,columns=fullflexible,
+  keepspaces=true,breaklines=true,showstringspaces=false,upquote=true,
+  keywordstyle=\color{cncodekw}\bfseries,
+  commentstyle=\color{cncodecomment}\itshape,
+  stringstyle=\color{cncodestring},aboveskip=0pt,belowskip=0pt}
+\tcbset{codebox/.style={listing only,enhanced,breakable,boxrule=0pt,arc=0pt,
+  outer arc=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt,
+  before skip=6pt,after skip=6pt}}
+\newtcblisting{pycode}{codebox,colback=cncodebg,colframe=cncodebg}
+\newtcblisting{outcode}{codebox,colback=white,colframe=white,
+  borderline west={1.5pt}{0pt}{cncodecomment!50},listing options={language={}}}
+
 % ---- Figures and tables (adapted from hust_gp.sty); loaded before hyperref ----
 % All floats: small captions, bold label, a \quad after it, centred; table captions
 % go above the table. The names are "Figure"/"Table", or 图/表 with the [zh] option.

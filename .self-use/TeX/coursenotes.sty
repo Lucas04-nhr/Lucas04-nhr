@@ -149,6 +149,32 @@
 \newtcblisting{outputblock}{codebox,colback=white,colframe=white,arc=0pt,outer arc=0pt,
   borderline west={1.5pt}{0pt}{cnborder},listing options={language={}}}
 
+% ---- Boxes: problems and callouts ----
+% problem: a question or exercise statement, powder-blue background with a
+% brand-blue rule on the left. Breaks across pages.
+%   \begin{problem} Compute ... \end{problem}
+% callout: an admonition box, like the ::: containers on the blog. The optional
+% argument picks the type (default note); the title may be left empty.
+%   types: info, note, tip, success, important, warning, danger
+%   \begin{callout}[warning]{Behaviour in NumPy 2.5} ... \end{callout}
+%   \begin{callout}{} an untitled note \end{callout}
+\newtcolorbox{problem}{enhanced,breakable,colback=cnnotebg,colframe=cnnotebg,
+  borderline west={2pt}{0pt}{cnbrand},arc=0pt,outer arc=0pt,
+  left=8pt,right=6pt,top=4pt,bottom=4pt,before skip=4pt,after skip=8pt}
+% title-bar colour per type: the marker tone closest in hue to the background
+\colorlet{cninfotitle}{cninfomark}
+\colorlet{cnnotetitle}{cninfomark}
+\colorlet{cntiptitle}{cnmark}
+\colorlet{cnsuccesstitle}{cntipmark}
+\colorlet{cnimportanttitle}{cnimportantmark}
+\colorlet{cnwarningtitle}{cnwarningmark}
+\colorlet{cndangertitle}{cndangermark}
+\NewTColorBox{callout}{O{note} m}{enhanced,breakable,
+  colback=cn#1bg,colframe=cn#1title,coltitle=cntext,colbacktitle=cn#1title,
+  fonttitle=\bfseries,arc=2pt,boxrule=0.6pt,left=6pt,right=6pt,
+  before skip=6pt,after skip=8pt,
+  code={\cn@ifblank{#2}{}{\tcbset{title={#2}}}}}
+  
 % ---- Figures and tables (adapted from hust_gp.sty); loaded before hyperref ----
 % All floats: small captions, bold label, a \quad after it, centred; table captions
 % go above the table. The names are "Figure"/"Table", or 图/表 with the [zh] option.
@@ -207,6 +233,62 @@
 \RequirePackage[hidelinks]{hyperref}
 % DOI field of the .bib entries: a link reading "doi:..."
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
+
+% ---- PDF metadata: author, copyright, document ID (XMP, via hyperxmp) ----
+% Every PDF carries the author, a copyright notice, a licence link and two IDs
+% in its XMP metadata (shown by Acrobat: File > Properties > Additional Metadata,
+% or `exiftool -xmp:all file.pdf`).
+%   DocumentID  uuid derived from author + title: the same for every compile of
+%               the same work, so a copy can be traced back to its source
+%   InstanceID  uuid derived from author + title + compile time: changes on
+%               every compile, identifies this particular PDF
+% Defaults are set below; override any of them in the preamble:
+%   \cnmetadata{title={Assignment 1}, subject={Vision and Image Processing},
+%     keywords={linear algebra, derivatives}, rights={CC BY-NC-SA 4.0},
+%     licenseurl={https://creativecommons.org/licenses/by-nc-sa/4.0/}}
+% Keys: author, title, subject, keywords, year, rights, licenseurl, url.
+\RequirePackage{hyperxmp}
+\pgfkeys{/cn/meta/.is family,/cn/meta/.cd,
+  author/.store in=\cn@m@author,     title/.store in=\cn@m@title,
+  subject/.store in=\cn@m@subject,   keywords/.store in=\cn@m@keywords,
+  year/.store in=\cn@m@year,         rights/.store in=\cn@m@rights,
+  licenseurl/.store in=\cn@m@lurl,   url/.store in=\cn@m@url,
+  author={Haoran Nie}, title={}, subject={}, keywords={}, year={\the\year},
+  rights={All rights reserved.}, licenseurl={}, url={https://blog.lucas04.top}}
+\newcommand{\cnmetadata}[1]{\pgfkeys{/cn/meta/.cd,#1}}
+% \cn@ifmblank{\macro}: \cn@ifblank on the contents of a macro
+\def\cn@ifmblank#1{\expandafter\cn@ifblank\expandafter{#1}}
+% \cn@uuid{<text>}: md5 of the text (XeTeX \mdfivesum), written as a uuid
+\def\cn@uuid#1{\expandafter\cn@uuidA\mdfivesum{#1}\@nil}
+\def\cn@uuidA#1#2#3#4#5#6#7#8{#1#2#3#4#5#6#7#8-\cn@uuidB}
+\def\cn@uuidB#1#2#3#4{#1#2#3#4-\cn@uuidC}
+\def\cn@uuidC#1#2#3#4{#1#2#3#4-\cn@uuidD}
+\def\cn@uuidD#1#2#3#4{#1#2#3#4-\cn@uuidE}
+\def\cn@uuidE#1\@nil{#1}
+% set at the end of the preamble, after any \cnmetadata, before hyperref
+% writes the document information
+\AddToHook{begindocument/before}{%
+  \edef\cn@stamp{\the\year-\two@digits{\the\month}-\two@digits{\the\day}T\the\time}%
+  \edef\cn@docid{\cn@uuid{\cn@m@author|\detokenize\expandafter{\cn@m@title}}}%
+  \edef\cn@instid{\cn@uuid{\cn@m@author|\detokenize\expandafter{\cn@m@title}|\cn@stamp}}%
+  \hypersetup{pdfauthor={\cn@m@author},
+    pdfcopyright={Copyright © \cn@m@year\ \cn@m@author. \cn@m@rights},
+    pdfcontacturl={\cn@m@url},
+    pdfdocumentid={uuid:\cn@docid},
+    pdfinstanceid={uuid:\cn@instid},
+    pdfcreator={LaTeX with coursenotes.sty}}%
+  \cn@ifmblank{\cn@m@title}{}{\hypersetup{pdftitle={\cn@m@title}}}%
+  \cn@ifmblank{\cn@m@subject}{}{\hypersetup{pdfsubject={\cn@m@subject}}}%
+  \cn@ifmblank{\cn@m@keywords}{}{\hypersetup{pdfkeywords={\cn@m@keywords}}}%
+  \cn@ifmblank{\cn@m@lurl}{}{\hypersetup{pdflicenseurl={\cn@m@lurl}}}}
+% hyperxmp drops /Author and /Keywords from the PDF Info dictionary under
+% XeTeX (the XMP copy is kept); write them back for viewers that read Info
+\ifdefined\XeTeXrevision
+  \AtBeginDocument{%
+    \pdfstringdef\cn@pdfauthor{\cn@m@author}%
+    \pdfstringdef\cn@pdfkeywords{\cn@m@keywords}%
+    \special{pdf:docinfo<</Author(\cn@pdfauthor)\cn@ifmblank{\cn@m@keywords}{}{/Keywords(\cn@pdfkeywords)}>>}}
+\fi
 
 % ---- Paragraphs and lists ----
 % No first-line indent; paragraphs separated by \parskip (4pt sheets, 5pt notes);

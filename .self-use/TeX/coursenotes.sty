@@ -429,6 +429,10 @@
   \renewcommand{\refname}{参考文献}
 \fi
 
+% question + full-sentence answer
+\newcommand{\spsv}[2]{\item \textbf{#1}\par\nopagebreak #2}
+\setlist[enumerate]{leftmargin=2em, itemsep=6pt}
+
 % ---- Bilingual content macros (both modes) ----
 % Each block below is kept on one page. Leave an argument empty for one language.
 \newcounter{qn}

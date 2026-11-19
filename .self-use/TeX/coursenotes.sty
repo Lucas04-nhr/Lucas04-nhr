@@ -283,10 +283,10 @@
 % \cn@ifmblank{\macro}: \cn@ifblank on the contents of a macro
 \def\cn@ifmblank#1{\expandafter\cn@ifblank\expandafter{#1}}
 % \cn@uuid\macro{<text>}: md5 of the text (XeTeX \mdfivesum), encrypted with
-% AES-128 (one block) and stored in \macro as a uuid. The key is the md5 of the
-% author's GitHub user ID; decrypt an ID back to the md5 with
+% AES-128 (one block) and stored in \macro as a uuid. The key is stored masked
+% (xor with an md5, see the end of this block); decrypt an ID back to the md5 with
 %   echo <uuid without dashes> | xxd -r -p | openssl enc -d -aes-128-ecb -nopad \
-%     -K "$(printf %s <GitHub user ID> | md5)" | xxd -p
+%     -K <key> | xxd -p
 \ExplSyntaxOn
 \intarray_new:Nn \g__cn_sbox_intarray { 256 }
 \intarray_new:Nn \g__cn_nxor_intarray { 256 }  % xor of two nibbles
@@ -359,11 +359,14 @@
     \intarray_gset:Nnn \g__cn_xtime_intarray { #1 + 1 }
       { \int_compare:nNnTF {#1} < { 128 } { 2 * #1 } { \__cn_xor:nn { 2 * #1 - 256 } { 27 } } }
   }
-% key expansion; #1 = key as 32 hex digits
-\cs_new_protected:Npn \__cn_aes_key:n #1
+% key expansion; key = #1 xor #2, both as 32 hex digits
+\cs_new_protected:Npn \__cn_aes_key:nn #1#2
   {
     \int_step_inline:nn { 16 }
-      { \intarray_gset:Nnn \g__cn_rk_intarray {##1} { \__cn_hexpair:nn {#1} {##1} } }
+      {
+        \intarray_gset:Nnn \g__cn_rk_intarray {##1}
+          { \__cn_xor:nn { \__cn_hexpair:nn {#1} {##1} } { \__cn_hexpair:nn {#2} {##1} } }
+      }
     \int_step_inline:nnn { 4 } { 43 } { \__cn_aes_key_word:n {##1} }
   }
 \cs_new_protected:Npn \__cn_aes_key_word:n #1
@@ -447,7 +450,7 @@
     \__cn_aes_round:nn { 10 } { }
     \tl_set:Ne \l__cn_aes_tl { \int_step_function:nN { 16 } \__cn_hexbyte:n }
   }
-\exp_args:Ne \__cn_aes_key:n { \mdfivesum { 117806313 } } % GitHub user ID
+\exp_args:Nne \__cn_aes_key:nn { 478eabd8a2bbe9493f81bef086fb9a4f } { \mdfivesum { Lucas04-nhr } }
 \cs_new_protected:Npn \cn@uuid #1#2
   {
     \exp_args:Ne \__cn_aes_encrypt:n { \mdfivesum {#2} }

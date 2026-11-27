@@ -1,17 +1,23 @@
 % coursenotes.sty --- shared layout for course study material. Compile with XeLaTeX.
-% Updated: Nov. 19, 2026
+% Updated: Nov. 27, 2026
 % Copyright © 2024 Haoran Nie. All rights reserved.
 %
 %   \documentclass[11pt,a4paper,twoside]{article}
-%   \usepackage{coursenotes}           printable notes (default): 25 mm margins,
-%                                      bilingual EN--ZH macros, topics of any length
-%   \usepackage[sheets]{coursenotes}   exam sheets: 18 mm margins, every topic fills
-%                                      exactly one duplex sheet (overflow is an error)
-%   \usepackage[zh]{coursenotes}       Chinese-only document: fixed names become
-%                                      目录 / 图 / 表 (combine with sheets if needed)
-%   \usepackage[loosefloats]{coursenotes}  LaTeX's default float placement instead of
-%                                      the denser default (see "Figures and tables")
-%   \courseheader{The header}          left-hand running header
+%   \usepackage{coursenotes}                printable notes (default): 25 mm margins,
+%                                           bilingual EN--ZH macros, topics of any length
+%   \usepackage[sheets]{coursenotes}        exam sheets: 18 mm margins, every topic fills
+%                                           exactly one duplex sheet (overflow is an error)
+%.  \usepackage[assignment]{coursenotes}.   assignment sheets: 18 mm margins, every topic fills 
+                                            exactly one duplex sheet,
+%   \usepackage[zh]{coursenotes}            Chinese-only document: fixed names become
+%                                           目录 / 图 / 表 (combine with sheets if needed)
+%   \usepackage[loosefloats]{coursenotes}   LaTeX's default float placement instead of
+%                                           the denser default (see "Figures and tables")
+%   \courseheader{The header}               left-hand running header
+%   \cnpagelimit{<number>}                  right-hand running header (default: page number)
+%.  \cnmargins{<left>}{<right>}             override the default margins (see "Page layout")
+%   \cnsectionheader{<text>}                override the default section header (see "Section headings")
+%.  \cntitle{<text>}                        override the default title (see "Title and author")
 %
 % Languages. Every content macro below takes an English and a Chinese argument and
 % works in three ways:
@@ -28,11 +34,13 @@
 \newif\ifcn@sheets \cn@sheetsfalse
 \newif\ifcn@zh \cn@zhfalse
 \newif\ifcn@densefloats \cn@densefloatstrue
+\newif\ifcn@assignment \cn@assignmentfalse
 \DeclareOption{notes}{\cn@sheetsfalse}
 \DeclareOption{sheets}{\cn@sheetstrue}
 \DeclareOption{zh}{\cn@zhtrue}
 \DeclareOption{densefloats}{\cn@densefloatstrue}
 \DeclareOption{loosefloats}{\cn@densefloatsfalse}
+\DeclareOption{assignment}{\cn@assignmenttrue}
 \ProcessOptions\relax
 
 % ---- Internal helpers ----
@@ -198,11 +206,19 @@
 \captionsetup{font=small,labelfont=bf,labelsep=quad,justification=centering,skip=6pt}
 \captionsetup[table]{position=top}% table captions sit above the table
 \captionsetup[sub]{font=small,labelformat=simple,labelsep=space}
-\renewcommand{\thesubfigure}{(\alph{subfigure})}
-\renewcommand{\thesubtable}{(\alph{subtable})}
-% \fig[<width>]{<file>}: \includegraphics with width (default 0.8\linewidth) and a
-% height cap of 0.7\textheight, aspect ratio kept, so a figure never overflows.
+% \fig[<width>]{<file>}: \includegraphics with width (default 0.8\linewidth), capped
+% at \cnfigmaxwidth (default \linewidth, i.e. no extra cap; an assignment can set e.g.
+% \renewcommand{\cnfigmaxwidth}{0.8\textwidth}) and at 0.7\textheight in height,
+% aspect ratio kept, so a figure never overflows.
+\newcommand{\cnfigmaxwidth}{\linewidth}
 \newcommand{\fig}[2][0.8\linewidth]{%
+  \begingroup
+  \setlength{\@tempdima}{#1}%
+  \setlength{\@tempdimb}{\cnfigmaxwidth}%
+  \ifdim\@tempdima>\@tempdimb \setlength{\@tempdima}{\@tempdimb}\fi
+  \includegraphics[width=\@tempdima,height=0.7\textheight,keepaspectratio]{#2}%
+  \endgroup}
+  \newcommand{\fig}[2][0.8\linewidth]{%
   \includegraphics[width=#1,height=0.7\textheight,keepaspectratio]{#2}}
 % \bicaption{<English>}{<中文>}: use in place of \caption.
 %   both filled    English caption, Chinese line under it in \zhstyle
@@ -646,6 +662,50 @@
 % question + full-sentence answer
 \newcommand{\spsv}[2]{\item \textbf{#1}\par\nopagebreak #2}
 \setlist[enumerate]{leftmargin=2em, itemsep=6pt}
+
+% ---- Page limit ----
+% \cnpagelimit {<n>}: at \end{document}, error if more than <n> pages were shipped out
+% (counts pages actually output, so page-number resets do not matter)
+\newcommand {\cnpagelimit}[1]{\gdef\cn@pagelimit{#1}}
+\AtEndDocument {\ifdefined\cn@pagelimit
+  \clearpage
+  \ifnum\ReadonlyShipoutCounter>\cn@pagelimit\relax
+    \PackageError {coursenotes}{Document has \the\ReadonlyShipoutCounter\space pages,
+      the limit is \cn@pagelimit}{Shorten the document or raise \string\cnpagelimit.}%
+  \fi\fi}
+
+% ---- Margins ----
+% \cnmargins {<length>}: same margin on all sides; keeps the running header as wide as the text
+\newcommand {\cnmargins}[1]{%
+  \geometry {margin=#1}%
+  \@ifpackageloaded {fancyhdr}{\setlength {\headwidth}{\textwidth}}{}}
+
+% ---- Running header from \section (assignments without \topic) ----
+\newcommand {\cnsectionheader}{\renewcommand {\sectionmark}[1]{\markboth {##1}{}}}
+
+% ---- Assignment title block ----
+% \cntitle {<title>}{<authors>}; separate authors with \cnsep
+\newcommand {\cnsep}{\,·\,}
+\newcommand {\cntitle}[2]{%
+  \thispagestyle {plain}%
+  \begin {center}
+  {\LARGE\bfseries #1\par}\vspace {6pt}
+  {\color {cnmuted} #2\par}
+  \end {center}}
+
+% ---- Grader notes: same layout as the problem box, rose palette ----
+\newtcolorbox {gradernote}{enhanced,breakable,colback=cndangerbg,colframe=cndangerbg,
+  borderline west={2pt}{0pt}{cndangermark},arc=0pt,outer arc=0pt,
+  left=8pt,right=6pt,top=4pt,bottom=4pt,before skip=4pt,after skip=8pt}
+
+% ---- Tables ----
+% tabularx/float and the L column (ragged-right X column) are always available;
+% [assignment] also loosens table rows a little
+\RequirePackage{tabularx,float}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\ifcn@assignment
+  \renewcommand{\arraystretch}{1.25}
+\fi
 
 % ---- Bilingual content macros (both modes) ----
 % Each block below is kept on one page. Leave an argument empty for one language.
